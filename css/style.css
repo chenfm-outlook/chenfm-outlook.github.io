@@ -642,6 +642,7 @@ body {
   -o-transition: color 0.3s ease 0s;
   -ms-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
+  padding-right: 5px;
 }
 #title-nav #title-nav-socials {
   padding-left: 10px;
@@ -650,6 +651,7 @@ body {
   margin: 10px;
 }
 #title-nav img {
+  position: absolute;
   border-radius: 50%;
   -webkit-box-shadow: 0 0 1px #fff;
   box-shadow: 0 0 1px #fff;
