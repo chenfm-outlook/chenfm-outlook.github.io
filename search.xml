@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[本是同根生，相煎何太急！ajax跨域请求]]></title>
+      <url>/2017/07/17/ajax-cross-domain/</url>
+      <content type="html"><![CDATA[<p>什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。</p>
+<p>vampires are invited into the house</p>
+<h2 id="spring-mvc-mybatis"><a href="#spring-mvc-mybatis" class="headerlink" title="spring mvc mybatis"></a>spring mvc mybatis</h2><p>spring MVC mybatis解决Ajax跨域请求，我是忍住不笑了。jsonp，代理，h5…都是弱爆了。</p>
+<p>废话不多说，上代码</p>
+<blockquote>
+<p>@CrossOrigin()</p>
+</blockquote>
+<p>没错，就是这么的垃圾。一个注解完成所有的需求。但是它的唯一缺陷就是spring mvc需要4.2.5以上。</p>
+<pre><code>&lt;properties&gt;
+    &lt;spring.version&gt;4.2.5.RELEASE&lt;/spring.version&gt;
+    &lt;spring-mybatis.version&gt;1.1.1&lt;/spring-mybatis.version&gt;
+    &lt;shiro.version&gt;1.2.3&lt;/shiro.version&gt;
+    &lt;mybatis-spring&gt;1.1.1&lt;/mybatis-spring&gt;
+    &lt;mybatis-paginator&gt;1.2.7&lt;/mybatis-paginator&gt;
+&lt;/properties&gt;
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[不知道你是从哪捡来的自信看我的博客]]></title>
       <url>/2017/07/15/index/</url>
       <content type="html"><![CDATA[<p>看在你这么丑的份上，就当你是对的吧~~~智障？我改如何存在，今天的笔没装完，谁都不许睡觉。</p>

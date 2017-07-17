@@ -98,6 +98,62 @@
   
 
     
+    <article id="post-ajax-cross-domain" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/17/ajax-cross-domain/" class="article-date">
+  <time datetime="2017-07-17T09:20:31.000Z" itemprop="datePublished">2017-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/17/ajax-cross-domain/">本是同根生，相煎何太急！ajax跨域请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。</p>
+<p>vampires are invited into the house</p>
+<h2 id="spring-mvc-mybatis"><a href="#spring-mvc-mybatis" class="headerlink" title="spring mvc mybatis"></a>spring mvc mybatis</h2><p>spring MVC mybatis解决Ajax跨域请求，我是忍住不笑了。jsonp，代理，h5…都是弱爆了。</p>
+<p>废话不多说，上代码</p>
+<blockquote>
+<p>@CrossOrigin()</p>
+</blockquote>
+<p>没错，就是这么的垃圾。一个注解完成所有的需求。但是它的唯一缺陷就是spring mvc需要4.2.5以上。</p>
+<pre><code>&lt;properties&gt;
+    &lt;spring.version&gt;4.2.5.RELEASE&lt;/spring.version&gt;
+    &lt;spring-mybatis.version&gt;1.1.1&lt;/spring-mybatis.version&gt;
+    &lt;shiro.version&gt;1.2.3&lt;/shiro.version&gt;
+    &lt;mybatis-spring&gt;1.1.1&lt;/mybatis-spring&gt;
+    &lt;mybatis-paginator&gt;1.2.7&lt;/mybatis-paginator&gt;
+&lt;/properties&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj57yz10p0002fsvd7asxi3wb" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+    
+  
+
+    
     <article id="post-index" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/15/index/" class="article-date">
@@ -130,7 +186,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/15/index/" data-id="cj57wk49800028kvdsxhcrhcu" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/15/index/" data-id="cj57yz10i0000fsvdjjnmzb6d" class="article-share-link">分享到</a>
       
 
       
