@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 陈菜鸡的个人博客</title>
+  <title>非指令命令下调用ueditor，angular报错 | 陈菜鸡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="陈菜鸡的个人博客">
-<meta property="og:url" content="https://chenfm-outlook.github.io/archives/index.html">
+  <meta name="description" content="非angular指令下引入百度ueditor，路由切换之后，就会报错。例如: TyepError:Cannot read property &amp;apos;getSelection&amp;apos; of undefined at dom.Range.Range.select (ueditor.all.js:5746) at dom.Range.setCursor (ueditor.all.js:5301">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非指令命令下调用ueditor，angular报错">
+<meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
+<meta property="og:description" content="非angular指令下引入百度ueditor，路由切换之后，就会报错。例如: TyepError:Cannot read property &amp;apos;getSelection&amp;apos; of undefined at dom.Range.Range.select (ueditor.all.js:5746) at dom.Range.setCursor (ueditor.all.js:5301">
+<meta property="og:updated_time" content="2017-07-18T07:55:06.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈菜鸡的个人博客">
+<meta name="twitter:title" content="非指令命令下调用ueditor，angular报错">
+<meta name="twitter:description" content="非angular指令下引入百度ueditor，路由切换之后，就会报错。例如: TyepError:Cannot read property &amp;apos;getSelection&amp;apos; of undefined at dom.Range.Range.select (ueditor.all.js:5746) at dom.Range.setCursor (ueditor.all.js:5301">
   
   
     <link rel="icon" href="/favicon.png">
@@ -94,77 +98,71 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/07/18/angular-ueditor/" class="archive-article-date">
-  <time datetime="2017-07-18T06:36:19.000Z" itemprop="datePublished">7月 18</time>
+        <section id="main"><article id="post-angular-ueditor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/18/angular-ueditor/" class="article-date">
+  <time datetime="2017-07-18T06:36:19.000Z" itemprop="datePublished">2017-07-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/angular-ueditor/">非指令命令下调用ueditor，angular报错</a>
+    <h1 class="article-title" itemprop="name">
+      非指令命令下调用ueditor，angular报错
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/07/17/ajax-cross-domain/" class="archive-article-date">
-  <time datetime="2017-07-17T09:20:31.000Z" itemprop="datePublished">7月 17</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/ajax-cross-domain/">本是同根生，相煎何太急！ajax跨域请求</a>
-    </h1>
-  
+        <p>非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:</p>
+<pre><code>TyepError:Cannot read property &apos;getSelection&apos; of undefined
+at dom.Range.Range.select (ueditor.all.js:5746)
+at dom.Range.setCursor (ueditor.all.js:5301
+at UE.Editor.execCommand (ueditor.all.js:13736)
+at UE.Editor._callCmdFn (ueditor.all.js:7587)
+at UE.Editor.execCommand (ueditor.all.js:7615)
+at UE.Editor.me.execCommand (ueditor.all.js:20578)
+at m.$scope.addNews (cms-controller.js:181)
+at cms-controller.js:246
+at angular.min.js:91
+at angular.min.js:123
+</code></pre><p>现在就使用我们的大杀器。</p>
+<pre><code>$scope.$on(&apos;$destroy&apos;, function() {
+     ue.destroy();
+});
+</code></pre><p>通过广播的方法，在路由切换的过程中，将ueditor销毁掉。懒人就有懒人解决的方法，不知道这个方法好不好，但是目的是达到辣。   </p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/07/15/index/" class="archive-article-date">
-  <time datetime="2017-07-15T05:38:39.852Z" itemprop="datePublished">7月 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/15/index/">不知道你是从哪捡来的自信看我的博客</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/" data-id="cj59aazhq0002fcvdbbovy8sb" class="article-share-link">分享到</a>
+      
 
-    </header>
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/17/ajax-cross-domain/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">本是同根生，相煎何太急！ajax跨域请求</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
       </div>

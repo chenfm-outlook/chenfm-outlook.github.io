@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title><![CDATA[非指令命令下调用ueditor，angular报错]]></title>
+      <url>/2017/07/18/angular-ueditor/</url>
+      <content type="html"><![CDATA[<p>非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:</p>
+<pre><code>TyepError:Cannot read property &apos;getSelection&apos; of undefined
+at dom.Range.Range.select (ueditor.all.js:5746)
+at dom.Range.setCursor (ueditor.all.js:5301
+at UE.Editor.execCommand (ueditor.all.js:13736)
+at UE.Editor._callCmdFn (ueditor.all.js:7587)
+at UE.Editor.execCommand (ueditor.all.js:7615)
+at UE.Editor.me.execCommand (ueditor.all.js:20578)
+at m.$scope.addNews (cms-controller.js:181)
+at cms-controller.js:246
+at angular.min.js:91
+at angular.min.js:123
+</code></pre><p>现在就使用我们的大杀器。</p>
+<pre><code>$scope.$on(&apos;$destroy&apos;, function() {
+     ue.destroy();
+});
+</code></pre><p>通过广播的方法，在路由切换的过程中，将ueditor销毁掉。懒人就有懒人解决的方法，不知道这个方法好不好，但是目的是达到辣。   </p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[本是同根生，相煎何太急！ajax跨域请求]]></title>
       <url>/2017/07/17/ajax-cross-domain/</url>
       <content type="html"><![CDATA[<p>什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。</p>

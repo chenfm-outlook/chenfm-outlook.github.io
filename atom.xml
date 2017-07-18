@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-07-17T09:53:04.200Z</updated>
+  <updated>2017-07-18T07:55:06.512Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>非指令命令下调用ueditor，angular报错</title>
+    <link href="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/"/>
+    <id>https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/</id>
+    <published>2017-07-18T06:36:19.000Z</published>
+    <updated>2017-07-18T07:55:06.512Z</updated>
+    
+    <content type="html"><![CDATA[<p>非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:</p>
+<pre><code>TyepError:Cannot read property &apos;getSelection&apos; of undefined
+at dom.Range.Range.select (ueditor.all.js:5746)
+at dom.Range.setCursor (ueditor.all.js:5301
+at UE.Editor.execCommand (ueditor.all.js:13736)
+at UE.Editor._callCmdFn (ueditor.all.js:7587)
+at UE.Editor.execCommand (ueditor.all.js:7615)
+at UE.Editor.me.execCommand (ueditor.all.js:20578)
+at m.$scope.addNews (cms-controller.js:181)
+at cms-controller.js:246
+at angular.min.js:91
+at angular.min.js:123
+</code></pre><p>现在就使用我们的大杀器。</p>
+<pre><code>$scope.$on(&apos;$destroy&apos;, function() {
+     ue.destroy();
+});
+</code></pre><p>通过广播的方法，在路由切换的过程中，将ueditor销毁掉。懒人就有懒人解决的方法，不知道这个方法好不好，但是目的是达到辣。   </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TyepError:Cannot read property &amp;apos;getSelection&amp;apos; of undefined
+at dom.Range.R
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>本是同根生，相煎何太急！ajax跨域请求</title>
