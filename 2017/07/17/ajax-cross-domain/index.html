@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
 <meta property="og:description" content="什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。 vampires are invited into the house spring mvc mybatisspring MVC mybatis解决Ajax跨域请求，我是忍住不笑了。jsonp，代理，h5…都是弱爆了。 废话不多说，上代码  @CrossOrigin()  没错，就是这么的垃圾。一个">
-<meta property="og:updated_time" content="2017-07-17T09:53:04.200Z">
+<meta property="og:updated_time" content="2017-07-19T06:11:01.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本是同根生，相煎何太急！ajax跨域请求">
 <meta name="twitter:description" content="什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。 vampires are invited into the house spring mvc mybatisspring MVC mybatis解决Ajax跨域请求，我是忍住不笑了。jsonp，代理，h5…都是弱爆了。 废话不多说，上代码  @CrossOrigin()  没错，就是这么的垃圾。一个">
@@ -135,12 +135,36 @@
     &lt;mybatis-spring&gt;1.1.1&lt;/mybatis-spring&gt;
     &lt;mybatis-paginator&gt;1.2.7&lt;/mybatis-paginator&gt;
 &lt;/properties&gt;
-</code></pre>
+</code></pre><h2 id="Access-control-Allow-Origin"><a href="#Access-control-Allow-Origin" class="headerlink" title="Access-control-Allow-Origin"></a>Access-control-Allow-Origin</h2><p>后台通过response.setHeader()的方式实现跨域请求，前端$.ajax()的方法设置请求头恕我才疏学浅，还没研究出来。有会的人请联系我。</p>
+<blockquote>
+<p>邮箱:1028784495@qq.com，QQ加我也没事情。</p>
+</blockquote>
+<p>java后端代码</p>
+<pre><code>public Map&lt;String,Object&gt; getArticleById(Integer isid , HttpServletResponse response){
+    Map&lt;String,Object&gt; resultMap = new HashMap&lt;String, Object&gt;();
+    try{
+        response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);// 指定允许其他域名访问 * 表示所有
+        //response.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;X-Requested-With,content-type,token&quot;); 响应类型  
+        //response.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH&quot;); 响应头设置  
+    ……
+</code></pre><p>$.ajax前端代码</p>
+<blockquote>
+<p>url:’<a href="http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0" target="_blank" rel="external">http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0</a>‘,</p>
+</blockquote>
+<p>尤其得注意url中的http：//别忘记加辣，一开始本菜鸡没加，后台都请求不过去，还以为是跨域请求写错辣，其实是你的url写错辣。</p>
+<pre><code>$.ajax({
+    url:&apos;http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0&apos;,
+    type:&apos;get&apos;,
+    success:function(){}
+    ……
+})
+</code></pre><p>由于这是H5，所以不支持IE8,但是这年头大家都开始不care辣。</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj59aazhh0000fcvdzjjgimws" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj5ardoym000070vdglxpoii5" class="article-share-link">分享到</a>
       
 
       

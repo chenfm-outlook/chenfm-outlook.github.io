@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java-file-upload | 陈菜鸡的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）https://github.com/chenfm-outlook/java-file-upload 前端部分 由于我用的是原生file控件，样式是很丑的，所以我就用大众的方法，将其隐藏掉，通过点击button的方式去触发file。 $scope.submit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-file-upload">
+<meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/index.html">
+<meta property="og:site_name" content="陈菜鸡的个人博客">
+<meta property="og:description" content="代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）https://github.com/chenfm-outlook/java-file-upload 前端部分 由于我用的是原生file控件，样式是很丑的，所以我就用大众的方法，将其隐藏掉，通过点击button的方式去触发file。 $scope.submit">
+<meta property="og:updated_time" content="2017-07-19T08:49:24.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java-file-upload">
+<meta name="twitter:description" content="代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）https://github.com/chenfm-outlook/java-file-upload 前端部分 由于我用的是原生file控件，样式是很丑的，所以我就用大众的方法，将其隐藏掉，通过点击button的方式去触发file。 $scope.submit">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">陈菜鸡的个人博客</div>
+      
+       <ul class="my-socials">
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/myself">就叫陈菜鸡吧</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">陈菜鸡的个人博客</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="搜索">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="chenfm-outlook.github.io">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/myself">就叫陈菜鸡吧</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/19/java-file-upload/" class="article-date">
+  <time datetime="2017-07-19T08:23:53.000Z" itemprop="datePublished">2017-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java-file-upload
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）<a href="https://github.com/chenfm-outlook/java-file-upload" target="_blank" rel="external">https://github.com/chenfm-outlook/java-file-upload</a></p>
+<p>前端部分</p>
+<p>由于我用的是原生file控件，样式是很丑的，所以我就用大众的方法，将其隐藏掉，通过点击button的方式去触发file。</p>
+<pre><code>$scope.submit = function(){
+    $(&apos;#file&apos;).trigger(&apos;click&apos;);
+    //当按钮点击时，触发file控件的点击事件
+}
+</code></pre><p>取消file的确定事件(长得丑就别出来)</p>
+<pre><code>$(&apos;input[type=&quot;file&quot;]&apos;).on(&apos;change&apos;,doUpload);
+function doUpload(){
+     var data = (new FormData($(&apos;#form&apos;)[0]));
+     $.ajax({
+       url:&apos;/AppFileUploadAction/fileUpload.do&apos;,
+       type:&apos;post&apos;,
+       data: new FormData($(&apos;#form&apos;)),
+       ……
+    })
+}
+</code></pre><p>值得注意的是data属性别忘记加上去，要吃亏的。</p>
+<blockquote>
+<p>data: new FormData($(‘#form’))</p>
+</blockquote>
+<p>最最麻花的东西就要出现辣，恶心辣我一下午。</p>
+<pre><code>&lt;form method=&quot;post&quot; id=&quot;form&quot; enctype=&quot;multipart/form-data&quot; style=&quot;display: none&quot;&gt;
+    &lt;input type=&quot;file&quot; id=&quot;file&quot; name=&quot;file&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>主要我菜，一开始没加name=”file”这个属性，图片上传功能死活不工作，真的是麻花，换辣N种方法，发现还是不对(内心是痛苦的)</p>
+<blockquote>
+<p>name=”file”  </p>
+</blockquote>
+<p>所以说，名字很重要，真TMD的重要。</p>
+<p>java部分</p>
+<p>为了项目的结构好看，我将图片的路径按当前时间(yy-mm-dd)创建文件夹</p>
+<pre><code>File file =new File(path);
+if(!file .exists()  &amp;&amp; !file .isDirectory()){
+    System.out.println(&quot;//不存在&quot;);
+    file .mkdir();
+}else{
+    System.out.println(&quot;//目录存在&quot;);
+}
+</code></pre><p>获取当前项目根目录</p>
+<blockquote>
+<p>String webBase = req.getSession().getServletContext().getRealPath(“/“);  //获取项目根目录</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/" data-id="cj5ardoyx000370vden4523f8" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/19/npm-ionic-error/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">npm在安装ionic过程中，故障频出，都不能好好的开车辣</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 就叫陈菜鸡吧<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/myself" class="mobile-nav-link">就叫陈菜鸡吧</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

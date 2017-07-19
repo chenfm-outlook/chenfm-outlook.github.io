@@ -1417,15 +1417,16 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #272822;
+  background: #f8f8f8;
   margin: 0 -20px;
   padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
-  border-width: 1px 0;
+  border-width: 1px 1px;
   overflow: auto;
-  color: #f8f8f2;
+  color: #333;
   line-height: 26.599999999999998px;
+  border-radius: 3px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -1493,7 +1494,7 @@ a.article-title:hover {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #272822;
+  background: #f8f8f8;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1519,7 +1520,7 @@ a.article-title:hover {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #272822;
+  background: #f8f8f8;
   color: #75715e;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
@@ -1539,7 +1540,7 @@ pre .preprocessor {
   color: #75715e;
 }
 pre .tag {
-  color: #f8f8f2;
+  color: #333;
 }
 pre .title,
 pre .variable,

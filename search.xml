@@ -3,6 +3,86 @@
   
     
     <entry>
+      <title><![CDATA[java-file-upload]]></title>
+      <url>/2017/07/19/java-file-upload/</url>
+      <content type="html"><![CDATA[<p>代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）<a href="https://github.com/chenfm-outlook/java-file-upload" target="_blank" rel="external">https://github.com/chenfm-outlook/java-file-upload</a></p>
+<p>前端部分</p>
+<p>由于我用的是原生file控件，样式是很丑的，所以我就用大众的方法，将其隐藏掉，通过点击button的方式去触发file。</p>
+<pre><code>$scope.submit = function(){
+    $(&apos;#file&apos;).trigger(&apos;click&apos;);
+    //当按钮点击时，触发file控件的点击事件
+}
+</code></pre><p>取消file的确定事件(长得丑就别出来)</p>
+<pre><code>$(&apos;input[type=&quot;file&quot;]&apos;).on(&apos;change&apos;,doUpload);
+function doUpload(){
+     var data = (new FormData($(&apos;#form&apos;)[0]));
+     $.ajax({
+       url:&apos;/AppFileUploadAction/fileUpload.do&apos;,
+       type:&apos;post&apos;,
+       data: new FormData($(&apos;#form&apos;)),
+       ……
+    })
+}
+</code></pre><p>值得注意的是data属性别忘记加上去，要吃亏的。</p>
+<blockquote>
+<p>data: new FormData($(‘#form’))</p>
+</blockquote>
+<p>最最麻花的东西就要出现辣，恶心辣我一下午。</p>
+<pre><code>&lt;form method=&quot;post&quot; id=&quot;form&quot; enctype=&quot;multipart/form-data&quot; style=&quot;display: none&quot;&gt;
+    &lt;input type=&quot;file&quot; id=&quot;file&quot; name=&quot;file&quot;&gt;
+&lt;/form&gt;
+</code></pre><p>主要我菜，一开始没加name=”file”这个属性，图片上传功能死活不工作，真的是麻花，换辣N种方法，发现还是不对(内心是痛苦的)</p>
+<blockquote>
+<p>name=”file”  </p>
+</blockquote>
+<p>所以说，名字很重要，真TMD的重要。</p>
+<p>java部分</p>
+<p>为了项目的结构好看，我将图片的路径按当前时间(yy-mm-dd)创建文件夹</p>
+<pre><code>File file =new File(path);
+if(!file .exists()  &amp;&amp; !file .isDirectory()){
+    System.out.println(&quot;//不存在&quot;);
+    file .mkdir();
+}else{
+    System.out.println(&quot;//目录存在&quot;);
+}
+</code></pre><p>获取当前项目根目录</p>
+<blockquote>
+<p>String webBase = req.getSession().getServletContext().getRealPath(“/“);  //获取项目根目录</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[npm在安装ionic过程中，故障频出，都不能好好的开车辣]]></title>
+      <url>/2017/07/19/npm-ionic-error/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>ionic start myApp tabs</p>
+</blockquote>
+<pre><code>Error:unable to verify the first certificate
+</code></pre><p>解决方法</p>
+<hr>
+<p>本人是win7，需要配置环境变量中的系统变量</p>
+<pre><code>变量名：NODE_TLS_REJECT_UNAUTHORIZED
+变量值：0（阿拉伯数字0）
+</code></pre><blockquote>
+<p>ionic platform add ios</p>
+</blockquote>
+<pre><code>Error:the platform command has been renamed.To find out more, run:
+
+ionic cordova platform --help
+</code></pre><p>解决方法</p>
+<hr>
+<p>由于ionic 3.x的版本ionic platform 命令已经重命名，所以照着它的提示敲。</p>
+<pre><code>ionic cordova platform add ios
+</code></pre><p>其他类似错误就不一一解答，解决方法都是ionic cordova代替ionic</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[非指令命令下调用ueditor，angular报错]]></title>
       <url>/2017/07/18/angular-ueditor/</url>
       <content type="html"><![CDATA[<p>非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:</p>
@@ -45,7 +125,31 @@ at angular.min.js:123
     &lt;mybatis-spring&gt;1.1.1&lt;/mybatis-spring&gt;
     &lt;mybatis-paginator&gt;1.2.7&lt;/mybatis-paginator&gt;
 &lt;/properties&gt;
-</code></pre>]]></content>
+</code></pre><h2 id="Access-control-Allow-Origin"><a href="#Access-control-Allow-Origin" class="headerlink" title="Access-control-Allow-Origin"></a>Access-control-Allow-Origin</h2><p>后台通过response.setHeader()的方式实现跨域请求，前端$.ajax()的方法设置请求头恕我才疏学浅，还没研究出来。有会的人请联系我。</p>
+<blockquote>
+<p>邮箱:1028784495@qq.com，QQ加我也没事情。</p>
+</blockquote>
+<p>java后端代码</p>
+<pre><code>public Map&lt;String,Object&gt; getArticleById(Integer isid , HttpServletResponse response){
+    Map&lt;String,Object&gt; resultMap = new HashMap&lt;String, Object&gt;();
+    try{
+        response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);// 指定允许其他域名访问 * 表示所有
+        //response.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;X-Requested-With,content-type,token&quot;); 响应类型  
+        //response.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH&quot;); 响应头设置  
+    ……
+</code></pre><p>$.ajax前端代码</p>
+<blockquote>
+<p>url:’<a href="http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0" target="_blank" rel="external">http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0</a>‘,</p>
+</blockquote>
+<p>尤其得注意url中的http：//别忘记加辣，一开始本菜鸡没加，后台都请求不过去，还以为是跨域请求写错辣，其实是你的url写错辣。</p>
+<pre><code>$.ajax({
+    url:&apos;http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0&apos;,
+    type:&apos;get&apos;,
+    success:function(){}
+    ……
+})
+</code></pre><p>由于这是H5，所以不支持IE8,但是这年头大家都开始不care辣。</p>
+]]></content>
       
         
     </entry>
