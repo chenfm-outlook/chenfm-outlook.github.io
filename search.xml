@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title><![CDATA[spring mvc 流程简单介绍]]></title>
+      <url>/2017/07/19/spring-mvc-process/</url>
+      <content type="html"><![CDATA[<p>http发送请求，action层(类)接收请求，在这层主要实现具体的方法和处理请求，是管理业务(service)调度和管理跳转的。</p>
+<p>服务层server，xxxSV.java声明一个方法，xxxSVImpl.java实现这个方法。</p>
+<p>dao层只完成CRUD,但是无论多么复杂的查询，dao层只是封装，至于CRUD如何去实现一个功能，dao层是不管的。</p>
+<p>Action像是服务员，顾客点什么菜，菜上给几号桌，都是ta的职责；Service是厨师，action送来的菜单上的菜全是ta做的；Dao是厨房的小工，和原材料打交道的事情全是ta管。相互关系是，小工(dao)的工作是要满足厨师(service)的要求，厨师要满足服务员(action)转达的客户（页面用户）的要求，服务员自然就是为客户服务喽。</p>
+<blockquote>
+<p>xm文件删除，dao层及其新增的CRUD语句复制，其他自动追加。</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[java-file-upload]]></title>
       <url>/2017/07/19/java-file-upload/</url>
       <content type="html"><![CDATA[<p>代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）<a href="https://github.com/chenfm-outlook/java-file-upload" target="_blank" rel="external">https://github.com/chenfm-outlook/java-file-upload</a></p>

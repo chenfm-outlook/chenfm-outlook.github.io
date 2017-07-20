@@ -98,6 +98,54 @@
   
 
     
+    <article id="post-spring-mvc-process" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/19/spring-mvc-process/" class="article-date">
+  <time datetime="2017-07-19T09:33:33.000Z" itemprop="datePublished">2017-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/19/spring-mvc-process/">spring mvc 流程简单介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>http发送请求，action层(类)接收请求，在这层主要实现具体的方法和处理请求，是管理业务(service)调度和管理跳转的。</p>
+<p>服务层server，xxxSV.java声明一个方法，xxxSVImpl.java实现这个方法。</p>
+<p>dao层只完成CRUD,但是无论多么复杂的查询，dao层只是封装，至于CRUD如何去实现一个功能，dao层是不管的。</p>
+<p>Action像是服务员，顾客点什么菜，菜上给几号桌，都是ta的职责；Service是厨师，action送来的菜单上的菜全是ta做的；Dao是厨房的小工，和原材料打交道的事情全是ta管。相互关系是，小工(dao)的工作是要满足厨师(service)的要求，厨师要满足服务员(action)转达的客户（页面用户）的要求，服务员自然就是为客户服务喽。</p>
+<blockquote>
+<p>xm文件删除，dao层及其新增的CRUD语句复制，其他自动追加。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/" data-id="cj5ate8dg00050kvdt8z6t3po" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+    
+  
+
+    
     <article id="post-java-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/19/java-file-upload/" class="article-date">
@@ -169,7 +217,7 @@ if(!file .exists()  &amp;&amp; !file .isDirectory()){
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/" data-id="cj5ardoyx000370vden4523f8" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/" data-id="cj5ate8d300030kvdlz54y9bo" class="article-share-link">分享到</a>
       
 
       
@@ -230,7 +278,7 @@ ionic cordova platform --help
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/19/npm-ionic-error/" data-id="cj5ardoyy000470vdf5mc0hv8" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/npm-ionic-error/" data-id="cj5ate8d400040kvdz992xb0q" class="article-share-link">分享到</a>
       
 
       
@@ -288,7 +336,7 @@ at angular.min.js:123
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/" data-id="cj5ardozh000570vd06yo3oj7" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/" data-id="cj5ate8cz00010kvdplgftw32" class="article-share-link">分享到</a>
       
 
       
@@ -368,7 +416,7 @@ at angular.min.js:123
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj5ardoym000070vdglxpoii5" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj5ate8cu00000kvd83vfoyqg" class="article-share-link">分享到</a>
       
 
       
@@ -414,7 +462,7 @@ at angular.min.js:123
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/15/index/" data-id="cj5ardoyu000270vd1d7tl3l9" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/15/index/" data-id="cj5ate8d100020kvdvw1uutiz" class="article-share-link">分享到</a>
       
 
       

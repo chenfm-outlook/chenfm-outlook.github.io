@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-07-19T08:49:24.641Z</updated>
+  <updated>2017-07-19T09:51:31.482Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring mvc 流程简单介绍</title>
+    <link href="https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/"/>
+    <id>https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/</id>
+    <published>2017-07-19T09:33:33.000Z</published>
+    <updated>2017-07-19T09:51:31.482Z</updated>
+    
+    <content type="html"><![CDATA[<p>http发送请求，action层(类)接收请求，在这层主要实现具体的方法和处理请求，是管理业务(service)调度和管理跳转的。</p>
+<p>服务层server，xxxSV.java声明一个方法，xxxSVImpl.java实现这个方法。</p>
+<p>dao层只完成CRUD,但是无论多么复杂的查询，dao层只是封装，至于CRUD如何去实现一个功能，dao层是不管的。</p>
+<p>Action像是服务员，顾客点什么菜，菜上给几号桌，都是ta的职责；Service是厨师，action送来的菜单上的菜全是ta做的；Dao是厨房的小工，和原材料打交道的事情全是ta管。相互关系是，小工(dao)的工作是要满足厨师(service)的要求，厨师要满足服务员(action)转达的客户（页面用户）的要求，服务员自然就是为客户服务喽。</p>
+<blockquote>
+<p>xm文件删除，dao层及其新增的CRUD语句复制，其他自动追加。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;http发送请求，action层(类)接收请求，在这层主要实现具体的方法和处理请求，是管理业务(service)调度和管理跳转的。&lt;/p&gt;
+&lt;p&gt;服务层server，xxxSV.java声明一个方法，xxxSVImpl.java实现这个方法。&lt;/p&gt;
+&lt;p&gt;dao层只完成C
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>java-file-upload</title>
