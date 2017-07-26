@@ -3,6 +3,17 @@
   
     
     <entry>
+      <title><![CDATA[Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案]]></title>
+      <url>/2017/07/26/andriod-webview/</url>
+      <content type="html"><![CDATA[<p>手机连接wife进行调试，webview报错，错误信息</p>
+<pre><code>net::ERR_PROXY_CONNECTION_FAILED
+</code></pre><p>只要将手机的wife代理关闭即可。是不是很简单啊？</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[win7下小菜鸡安装ionic1.x，呵呵哒辣]]></title>
       <url>/2017/07/24/ionic-install/</url>
       <content type="html"><![CDATA[<p>本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的…</p>

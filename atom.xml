@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-07-26T06:42:14.683Z</updated>
+  <updated>2017-07-26T06:50:38.425Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案</title>
+    <link href="https://chenfm-outlook.github.io/2017/07/26/andriod-webview/"/>
+    <id>https://chenfm-outlook.github.io/2017/07/26/andriod-webview/</id>
+    <published>2017-07-26T06:48:43.000Z</published>
+    <updated>2017-07-26T06:50:38.425Z</updated>
+    
+    <content type="html"><![CDATA[<p>手机连接wife进行调试，webview报错，错误信息</p>
+<pre><code>net::ERR_PROXY_CONNECTION_FAILED
+</code></pre><p>只要将手机的wife代理关闭即可。是不是很简单啊？</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;手机连接wife进行调试，webview报错，错误信息&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;net::ERR_PROXY_CONNECTION_FAILED
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;只要将手机的wife代理关闭即可。是不是很简单啊？&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>win7下小菜鸡安装ionic1.x，呵呵哒辣</title>
