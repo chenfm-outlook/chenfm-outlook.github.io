@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-07-19T09:51:31.482Z</updated>
+  <updated>2017-07-26T06:42:14.683Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -14,6 +14,122 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win7下小菜鸡安装ionic1.x，呵呵哒辣</title>
+    <link href="https://chenfm-outlook.github.io/2017/07/24/ionic-install/"/>
+    <id>https://chenfm-outlook.github.io/2017/07/24/ionic-install/</id>
+    <published>2017-07-24T06:31:18.000Z</published>
+    <updated>2017-07-26T06:42:14.683Z</updated>
+    
+    <content type="html"><![CDATA[<p>本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的…</p>
+<p>尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。</p>
+<blockquote>
+<p>ionic start yxsh blank –type=ionic1</p>
+</blockquote>
+<p>安装空白页面的ionic1.x，第一部就给我报错辣，怎么不去吃屎去，别说我，我去还不行吗，别给我报错了。</p>
+<pre><code>Error:unable to verify the first certificate
+</code></pre><p>原因：win7下还需要配置一个环境变量。系统环境变量中新建NODE_TLS_REJECT_UNAUTHORIZED，其值为0</p>
+<pre><code>变量名：NODE_TLS_REJECT_UNAUTHORIZED
+变量值：0（阿拉伯数字0）
+</code></pre><blockquote>
+<p>cd yxsh</p>
+<p>ionic cordova platform add android</p>
+</blockquote>
+<p>注：在/platforms/android/res/values/包里面打开strings.xml 文件在resources 标签里面添加 </p>
+<pre><code>tools:ignore=&quot;MissingTranslation&quot; xmlns:tools=&quot;http://schemas.android.com/tools&quot;  
+</code></pre><p>接下来的就是最恶心的环节，就是装装装，设设设，下下下…</p>
+<blockquote>
+<p>ionic build android</p>
+</blockquote>
+<p>这里我是报错辣</p>
+<pre><code>Error:the platform command has been renamed.To find out more, run:
+
+ionic cordova platform --help
+</code></pre><p>由于ionic 3.x的版本ionic platform 命令已经重命名，所以照着它的提示敲。</p>
+<pre><code>ionic cordova platform add android
+</code></pre><p>其他类似错误就不一一解答，解决方法都是ionic cordova代替ionic</p>
+<p>在这里，需要我们装jdk，apache-ant，android-sdk，gradle，以上这些东西都能百度得到，就不一一细讲辣。</p>
+<p>android-sdk中的Android SDK Manager可以看看这篇博客 <a href="http://blog.csdn.net/xushuai0616/article/details/55802725" target="_blank" rel="external">http://blog.csdn.net/xushuai0616/article/details/55802725</a></p>
+<p>Android SDK Manager Log报错</p>
+<blockquote>
+<p>Failed to fetch URL <a href="http://dl.google.com/android/repository/addons_list-2.xml" target="_blank" rel="external">http://dl.google.com/android/repository/addons_list-2.xml</a>, reason: Unknown Host HTTP Proxy server</p>
+</blockquote>
+<p>大牛的回答</p>
+<pre><code>在Android SDK Manager Setting 窗口设置HTTP Proxy server和HTTP Proxy Port这个2个参数，
+
+分别设置为： HTTP Proxy server：mirrors.neusoft.edu.cn HTTP Proxy Port：80 
+
+然后把下面的Force ..hxxxxxxxxxxxxxxxxxx勾上
+</code></pre><p>因为我是直接在真机上测试</p>
+<blockquote>
+<p>ionic cordova run android 代替 ionic cordova build android 和 ionic cordova emulate android</p>
+</blockquote>
+<p>在这里要说以下，build是生成apk，而在手机上测试需要将apk装到手机上，所以手机必须开启“你傻逼”的功能。而我的手机开启辣傻逼模式还是没有发现设备。</p>
+<blockquote>
+<p>adb devices</p>
+</blockquote>
+<pre><code>List of devices attached 
+</code></pre><p>adb devices找不到设备?原来是我的电脑没有安装Android Device，然后在adb_usb.ini文件中写入VID数值，百度教程<a href="http://jingyan.baidu.com/article/ce09321b5b76642bff858f31.html" target="_blank" rel="external">http://jingyan.baidu.com/article/ce09321b5b76642bff858f31.html</a></p>
+<p>这样，你的app就能在手机上调试辣。</p>
+<blockquote>
+<p>chrome://inspect/#devices</p>
+</blockquote>
+<p>手机usb连接，并且开启开发者模式，就能进入WebView调试界面，手机上打开app，在pc端就会显示如下：</p>
+<pre><code>WebView in io.ionic.starter (33.0.0.0)
+app名字 file://android_asset/www/index.htm
+inspect
+</code></pre><p>点击inspect就能进入调试。</p>
+<pre><code>注：WebView调试只支持debug.apk调试，不支持已签名的apk
+</code></pre><p>ionic修改app名字，只需要在项目根目录下的config.xml文件修改以下就可以辣</p>
+<pre><code>&lt;name&gt;项目名称&lt;/name&gt;
+</code></pre><p>ionic生成图标及其启动图片，\resources\android\icon是存放android图标的地方。在\resources文件夹中都放入icon.png（ionic图标是1024*1024，所以大家懂的）</p>
+<blockquote>
+<p>ionic cordova resources  –icon  </p>
+</blockquote>
+<p>会帮你自动生产各种大小的图片。</p>
+<p>启动图片根图标的生成方式是一模一样的，系统自带的是2732*2732()</p>
+<blockquote>
+<p>ionic cordova resources  –splash</p>
+</blockquote>
+<p>一步到位</p>
+<blockquote>
+<p>ionic cordova resources</p>
+</blockquote>
+<p>注：这种生成的图片方式还是是裁剪，而不是等比例缩放，所以建议大家还是自己作图，如果有更好的方式可以给我分享</p>
+<pre><code>1028784495@qq.com  
+</code></pre><p>一般在C盘 Users/用户/.android包里面；找到debug.keystore查看keystore 详细信息获得别名 android 为 keystore 的默认密码 </p>
+<pre><code>keytool -list -v -keystore debug.keystore -storepass android
+</code></pre><p>在当前目录下生成 my-release-key.keystore 签名信息（validity 签名有效天数）</p>
+<pre><code>keytool -genkey -v -keystore my-release-key.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 20000    
+</code></pre><p>ionic App生成无签名apk</p>
+<blockquote>
+<p>cordova build android –release</p>
+</blockquote>
+<p>编译成功之后；会在platforms\android\build\outputs\apk包里面生成一个android-release-unsigned.apk文件  </p>
+<p>将android-release-unsigned.apk文件移动至C:\Users.android的文件的根目录下(和my-release-key.keystore放在一起)</p>
+<p>签名</p>
+<pre><code>jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk androiddebugkey  
+</code></pre><p>最后放上我借鉴的网址</p>
+<p>ionic Deploying</p>
+<pre><code>http://ionicframework.com/docs/intro/deploying/
+</code></pre><p>IONIC 发布正式版本打包步骤 - dailuwen的专栏 - CSDN博客</p>
+<pre><code>http://blog.csdn.net/dailuwen/article/details/53907735
+</code></pre><p>签署您的应用 | Android Studio(有点小卡)</p>
+<pre><code>https://developer.android.com/studio/publish/app-signing.html#setup
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的…&lt;/p&gt;
+&lt;p&gt;尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ionic start
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>spring mvc 流程简单介绍</title>
@@ -98,49 +214,6 @@ if(!file .exists()  &amp;&amp; !file .isDirectory()){
     <summary type="html">
     
       &lt;p&gt;代码微微有点长，java部分就自己犯下的错误记录以下，代码就不贴辣，我放在来我的github上，有需要的可以自己去看看（其实写的炒鸡辣鸡）&lt;a href=&quot;https://github.com/chenfm-outlook/java-file-upload&quot; target=
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>npm在安装ionic过程中，故障频出，都不能好好的开车辣</title>
-    <link href="https://chenfm-outlook.github.io/2017/07/19/npm-ionic-error/"/>
-    <id>https://chenfm-outlook.github.io/2017/07/19/npm-ionic-error/</id>
-    <published>2017-07-19T01:20:34.000Z</published>
-    <updated>2017-07-19T02:22:28.099Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>ionic start myApp tabs</p>
-</blockquote>
-<pre><code>Error:unable to verify the first certificate
-</code></pre><p>解决方法</p>
-<hr>
-<p>本人是win7，需要配置环境变量中的系统变量</p>
-<pre><code>变量名：NODE_TLS_REJECT_UNAUTHORIZED
-变量值：0（阿拉伯数字0）
-</code></pre><blockquote>
-<p>ionic platform add ios</p>
-</blockquote>
-<pre><code>Error:the platform command has been renamed.To find out more, run:
-
-ionic cordova platform --help
-</code></pre><p>解决方法</p>
-<hr>
-<p>由于ionic 3.x的版本ionic platform 命令已经重命名，所以照着它的提示敲。</p>
-<pre><code>ionic cordova platform add ios
-</code></pre><p>其他类似错误就不一一解答，解决方法都是ionic cordova代替ionic</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;ionic start myApp tabs&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;Error:unable to verify the first certificate
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解决方法&lt;/p&gt;
-&lt;h
     
     </summary>
     

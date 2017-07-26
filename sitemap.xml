@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenfm-outlook.github.io/2017/07/24/ionic-install/</loc>
+    
+    <lastmod>2017-07-26T06:42:14.683Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/</loc>
     
     <lastmod>2017-07-19T09:51:31.482Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/</loc>
     
     <lastmod>2017-07-19T06:11:01.608Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenfm-outlook.github.io/2017/07/19/npm-ionic-error/</loc>
-    
-    <lastmod>2017-07-19T02:22:28.099Z</lastmod>
     
   </url>
   
