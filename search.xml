@@ -3,6 +3,69 @@
   
     
     <entry>
+      <title><![CDATA[没钱就bibi]]></title>
+      <url>/2017/07/28/list/</url>
+      <content type="html"><![CDATA[<p>Intellij IDEA 2017.1.5 x64破解码</p>
+<blockquote>
+<p><a href="http://idea.iteblog.com/key.php" target="_blank" rel="external">http://idea.iteblog.com/key.php</a></p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[maven-web-xml]]></title>
+      <url>/2017/07/28/maven-web-xml/</url>
+      <content type="html"><![CDATA[<p>首先，maven工程中的web.xml配置文件不是必须的。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; //xml的版本号为1.0，字符编码为utf-8
+    &lt;web-app version=&quot;2.5&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee &quot;&gt;
+
+    //指定欢迎页面(个人理解这不是首页吗，欢迎页其实我一点都不欢迎你来访问)
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;  //javaweb项目默认index.html是首页
+        ......
+        //可设置多个页面，从上往下，依次查找，找到就显示，结束这次任务
+        &lt;welcome-file&gt;user/index.html&lt;/welcome-file&gt;
+        //可对不同的文件设置自身的首页
+    &lt;/welcome-file-list&gt;
+
+    //错误编码，跳转自定义页面
+    &lt;error-page&gt;
+        &lt;error-code&gt;404&lt;/error-code&gt;
+        &lt;location&gt;/user/8888.html&lt;/location&gt;
+    &lt;/error-page&gt;
+
+    //抛异常
+    &lt;error-page&gt;
+        &lt;exception-type&gt;java.lang.Exception&lt;exception-type&gt;
+        &lt;location&gt;/exception.html&lt;location&gt;
+    &lt;/error-page&gt;
+
+    //过滤器解决spring编码问题，只对post请求有效
+    &lt;filter&gt;
+        &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;encoding&lt;/param-name&gt;
+            &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+            &lt;param-value&gt;true&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+
+&lt;/web-app&gt;
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案]]></title>
       <url>/2017/07/26/andriod-webview/</url>
       <content type="html"><![CDATA[<p>手机连接wife进行调试，webview报错，错误信息</p>
@@ -111,7 +174,26 @@ inspect
 <pre><code>http://blog.csdn.net/dailuwen/article/details/53907735
 </code></pre><p>签署您的应用 | Android Studio(有点小卡)</p>
 <pre><code>https://developer.android.com/studio/publish/app-signing.html#setup
-</code></pre>]]></content>
+</code></pre><p>Mac安装ionic</p>
+<blockquote>
+<p>sudo npm install -g cordova ionic</p>
+</blockquote>
+<p>第一部就报了一个很常见的错误，无法验证的签名。</p>
+<pre><code>code UNABLE_TO_VERIFY_LEAF_SIGNATURE
+</code></pre><p>这里只需关闭代理即可</p>
+<pre><code>npm config set strict-ssl false
+</code></pre><p>开启代理</p>
+<pre><code>npm config set strict-ssl true
+</code></pre><p>但是麻花的事情是，这货关闭了代理也不行，回想当初win7也报了个错误，它的解决方法是新建一个环境变量，将其的值赋值为”0”</p>
+<pre><code>vi .bash_profile
+
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+</code></pre><p>最可恨的还是不行，见鬼辣，最后是换辣镜像文件就可以辣</p>
+<blockquote>
+<p>npm config set registry <a href="http://registry.cnpmjs.org/" target="_blank" rel="external">http://registry.cnpmjs.org/</a></p>
+<p>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></p>
+</blockquote>
+]]></content>
       
         
     </entry>

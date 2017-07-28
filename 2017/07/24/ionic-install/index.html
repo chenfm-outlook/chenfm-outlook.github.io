@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/24/ionic-install/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
 <meta property="og:description" content="本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的… 尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。  ionic start yxsh blank –type=ionic1  安装空白页面的ionic1.x，第一部就给我报错辣，怎么不去吃屎去，别说我，我去还不行吗，别给我报错了。 Error:unab">
-<meta property="og:updated_time" content="2017-07-26T06:42:14.683Z">
+<meta property="og:updated_time" content="2017-07-28T09:00:04.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="win7下小菜鸡安装ionic1.x，呵呵哒辣">
 <meta name="twitter:description" content="本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的… 尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。  ionic start yxsh blank –type=ionic1  安装空白页面的ionic1.x，第一部就给我报错辣，怎么不去吃屎去，别说我，我去还不行吗，别给我报错了。 Error:unab">
@@ -215,12 +215,31 @@ inspect
 <pre><code>http://blog.csdn.net/dailuwen/article/details/53907735
 </code></pre><p>签署您的应用 | Android Studio(有点小卡)</p>
 <pre><code>https://developer.android.com/studio/publish/app-signing.html#setup
-</code></pre>
+</code></pre><p>Mac安装ionic</p>
+<blockquote>
+<p>sudo npm install -g cordova ionic</p>
+</blockquote>
+<p>第一部就报了一个很常见的错误，无法验证的签名。</p>
+<pre><code>code UNABLE_TO_VERIFY_LEAF_SIGNATURE
+</code></pre><p>这里只需关闭代理即可</p>
+<pre><code>npm config set strict-ssl false
+</code></pre><p>开启代理</p>
+<pre><code>npm config set strict-ssl true
+</code></pre><p>但是麻花的事情是，这货关闭了代理也不行，回想当初win7也报了个错误，它的解决方法是新建一个环境变量，将其的值赋值为”0”</p>
+<pre><code>vi .bash_profile
+
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+</code></pre><p>最可恨的还是不行，见鬼辣，最后是换辣镜像文件就可以辣</p>
+<blockquote>
+<p>npm config set registry <a href="http://registry.cnpmjs.org/" target="_blank" rel="external">http://registry.cnpmjs.org/</a></p>
+<p>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></p>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj5kplrdk00076cvddf9aeofd" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj5noo2to0004wwvdirxpw6o5" class="article-share-link">分享到</a>
       
 
       

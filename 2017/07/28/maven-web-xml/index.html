@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案 | 陈菜鸡的个人博客</title>
+  <title>maven-web-xml | 陈菜鸡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="手机连接wife进行调试，webview报错，错误信息 net::ERR_PROXY_CONNECTION_FAILED 只要将手机的wife代理关闭即可。是不是很简单啊？">
+  <meta name="description" content="首先，maven工程中的web.xml配置文件不是必须的。 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; //xml的版本号为1.0，字符编码为utf-8     &amp;lt;web-app version=&amp;quot;2.5&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案">
-<meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/26/andriod-webview/index.html">
+<meta property="og:title" content="maven-web-xml">
+<meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
-<meta property="og:description" content="手机连接wife进行调试，webview报错，错误信息 net::ERR_PROXY_CONNECTION_FAILED 只要将手机的wife代理关闭即可。是不是很简单啊？">
-<meta property="og:updated_time" content="2017-07-26T06:50:38.425Z">
+<meta property="og:description" content="首先，maven工程中的web.xml配置文件不是必须的。 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; //xml的版本号为1.0，字符编码为utf-8     &amp;lt;web-app version=&amp;quot;2.5&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/j">
+<meta property="og:updated_time" content="2017-07-28T09:41:55.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案">
-<meta name="twitter:description" content="手机连接wife进行调试，webview报错，错误信息 net::ERR_PROXY_CONNECTION_FAILED 只要将手机的wife代理关闭即可。是不是很简单啊？">
+<meta name="twitter:title" content="maven-web-xml">
+<meta name="twitter:description" content="首先，maven工程中的web.xml配置文件不是必须的。 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; //xml的版本号为1.0，字符编码为utf-8     &amp;lt;web-app version=&amp;quot;2.5&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/j">
   
   
     <link rel="icon" href="/favicon.png">
@@ -98,10 +98,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-andriod-webview" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-maven-web-xml" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/26/andriod-webview/" class="article-date">
-  <time datetime="2017-07-26T06:48:43.000Z" itemprop="datePublished">2017-07-26</time>
+    <a href="/2017/07/28/maven-web-xml/" class="article-date">
+  <time datetime="2017-07-28T01:37:09.000Z" itemprop="datePublished">2017-07-28</time>
 </a>
     
   </div>
@@ -112,7 +112,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案
+      maven-web-xml
     </h1>
   
 
@@ -120,15 +120,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>手机连接wife进行调试，webview报错，错误信息</p>
-<pre><code>net::ERR_PROXY_CONNECTION_FAILED
-</code></pre><p>只要将手机的wife代理关闭即可。是不是很简单啊？</p>
+        <p>首先，maven工程中的web.xml配置文件不是必须的。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; //xml的版本号为1.0，字符编码为utf-8
+    &lt;web-app version=&quot;2.5&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee &quot;&gt;
 
+    //指定欢迎页面(个人理解这不是首页吗，欢迎页其实我一点都不欢迎你来访问)
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;  //javaweb项目默认index.html是首页
+        ......
+        //可设置多个页面，从上往下，依次查找，找到就显示，结束这次任务
+        &lt;welcome-file&gt;user/index.html&lt;/welcome-file&gt;
+        //可对不同的文件设置自身的首页
+    &lt;/welcome-file-list&gt;
+
+    //错误编码，跳转自定义页面
+    &lt;error-page&gt;
+        &lt;error-code&gt;404&lt;/error-code&gt;
+        &lt;location&gt;/user/8888.html&lt;/location&gt;
+    &lt;/error-page&gt;
+
+    //抛异常
+    &lt;error-page&gt;
+        &lt;exception-type&gt;java.lang.Exception&lt;exception-type&gt;
+        &lt;location&gt;/exception.html&lt;location&gt;
+    &lt;/error-page&gt;
+
+    //过滤器解决spring编码问题，只对post请求有效
+    &lt;filter&gt;
+        &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;encoding&lt;/param-name&gt;
+            &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+            &lt;param-value&gt;true&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;/filter&gt;
+
+&lt;/web-app&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/26/andriod-webview/" data-id="cj5noo2qu0000wwvd2ct6uvta" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/" data-id="cj5noo2tw0006wwvdnkn1k3wm" class="article-share-link">分享到</a>
       
 
       
@@ -138,19 +178,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/07/28/maven-web-xml/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/07/28/list/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          maven-web-xml
+          没钱就bibi
         
       </div>
     </a>
   
   
-    <a href="/2017/07/24/ionic-install/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/26/andriod-webview/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">win7下小菜鸡安装ionic1.x，呵呵哒辣</div>
+      <div class="article-nav-title">Android webview显示net::ERR_PROXY_CONNECTION_FAILED解决方案</div>
     </a>
   
 </nav>
