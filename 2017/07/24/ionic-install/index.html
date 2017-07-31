@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/24/ionic-install/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
 <meta property="og:description" content="本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的… 尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。  ionic start yxsh blank –type=ionic1  安装空白页面的ionic1.x，第一部就给我报错辣，怎么不去吃屎去，别说我，我去还不行吗，别给我报错了。 Error:unab">
-<meta property="og:updated_time" content="2017-07-28T09:00:04.808Z">
+<meta property="og:updated_time" content="2017-07-31T09:34:20.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="win7下小菜鸡安装ionic1.x，呵呵哒辣">
 <meta name="twitter:description" content="本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的… 尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。  ionic start yxsh blank –type=ionic1  安装空白页面的ionic1.x，第一部就给我报错辣，怎么不去吃屎去，别说我，我去还不行吗，别给我报错了。 Error:unab">
@@ -234,12 +234,34 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 <p>npm config set registry <a href="http://registry.cnpmjs.org/" target="_blank" rel="external">http://registry.cnpmjs.org/</a></p>
 <p>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></p>
 </blockquote>
+<p>另外，mac开发ionic时，需要安装Xcode,接着配置Xcode，</p>
+<ol>
+<li>Open Xcode preferences (Xcode &gt; Preferences…)</li>
+<li>Click the ‘Accounts’ tab</li>
+<li>Login with your Apple ID (+ &gt; Add Apple ID…)</li>
+</ol>
+<blockquote>
+<p>appid is not on any development teams</p>
+</blockquote>
+<p>解决方法，删除appid，再重新登下appid就可以了。</p>
+<p>接着：</p>
+<pre><code>&gt;ionic cordova build ios
+</code></pre><p>中途报了个错误，如下：</p>
+<pre><code>xcode-seect:error:tool &apos;xcodebuild&apos; requires Xcode,but active developer directory &apos;/Library/Developer/CommandLineTools&apos; is a command line tools instance
+</code></pre><p>解决措施，重新定义一下xcode的路径，例如我的</p>
+<blockquote>
+<p>sudo xcode-select –switch /Applications/Xcode.app</p>
+</blockquote>
+<p>mac ionic真机调试还需要装iOS-deploy，iOS-deploy是一个使用命令行安装ios app到连接的设备的工具，原理是根据os x命令行工程调用系统底层函数，获取连接的设备、查询/安装/卸载app。</p>
+<blockquote>
+<p>npm install -g ios-deploy</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj5nor5fo0005bcvd0hv1045y" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj5ryq4bx0003dgvdzfpa4d14" class="article-share-link">分享到</a>
       
 
       

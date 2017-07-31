@@ -44,7 +44,7 @@
     <link href="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/"/>
     <id>https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/</id>
     <published>2017-07-28T01:37:09.000Z</published>
-    <updated>2017-07-28T09:41:55.698Z</updated>
+    <updated>2017-07-31T09:54:01.757Z</updated>
     
     <content type="html"><![CDATA[<p>首先，maven工程中的web.xml配置文件不是必须的。</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; //xml的版本号为1.0，字符编码为utf-8
@@ -88,6 +88,22 @@
         &lt;/init-param&gt;
     &lt;/filter&gt;
 
+    //Spring MVC配置
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;
+                /WEB-INF/servlet-context.xml
+            &lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
 &lt;/web-app&gt;
 </code></pre>]]></content>
     
@@ -131,7 +147,7 @@
     <link href="https://chenfm-outlook.github.io/2017/07/24/ionic-install/"/>
     <id>https://chenfm-outlook.github.io/2017/07/24/ionic-install/</id>
     <published>2017-07-24T06:31:18.000Z</published>
-    <updated>2017-07-28T09:00:04.808Z</updated>
+    <updated>2017-07-31T09:34:20.411Z</updated>
     
     <content type="html"><![CDATA[<p>本以为不就是装个ionic吗，应该是很简单，装到我后面我发现这真的是个笑话，沮麻烦，沮恶心，沮痛苦的…</p>
 <p>尤其还没有完整的安装教程，错误也是千奇百怪，不记下来，等下次在安装，那不是第二次头皮发麻吗。</p>
@@ -246,6 +262,28 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 <blockquote>
 <p>npm config set registry <a href="http://registry.cnpmjs.org/" target="_blank" rel="external">http://registry.cnpmjs.org/</a></p>
 <p>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></p>
+</blockquote>
+<p>另外，mac开发ionic时，需要安装Xcode,接着配置Xcode，</p>
+<ol>
+<li>Open Xcode preferences (Xcode &gt; Preferences…)</li>
+<li>Click the ‘Accounts’ tab</li>
+<li>Login with your Apple ID (+ &gt; Add Apple ID…)</li>
+</ol>
+<blockquote>
+<p>appid is not on any development teams</p>
+</blockquote>
+<p>解决方法，删除appid，再重新登下appid就可以了。</p>
+<p>接着：</p>
+<pre><code>&gt;ionic cordova build ios
+</code></pre><p>中途报了个错误，如下：</p>
+<pre><code>xcode-seect:error:tool &apos;xcodebuild&apos; requires Xcode,but active developer directory &apos;/Library/Developer/CommandLineTools&apos; is a command line tools instance
+</code></pre><p>解决措施，重新定义一下xcode的路径，例如我的</p>
+<blockquote>
+<p>sudo xcode-select –switch /Applications/Xcode.app</p>
+</blockquote>
+<p>mac ionic真机调试还需要装iOS-deploy，iOS-deploy是一个使用命令行安装ios app到连接的设备的工具，原理是根据os x命令行工程调用系统底层函数，获取连接的设备、查询/安装/卸载app。</p>
+<blockquote>
+<p>npm install -g ios-deploy</p>
 </blockquote>
 ]]></content>
     

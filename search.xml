@@ -59,6 +59,22 @@
         &lt;/init-param&gt;
     &lt;/filter&gt;
 
+    //Spring MVC配置
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;
+                /WEB-INF/servlet-context.xml
+            &lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
 &lt;/web-app&gt;
 </code></pre>]]></content>
       
@@ -192,6 +208,28 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 <blockquote>
 <p>npm config set registry <a href="http://registry.cnpmjs.org/" target="_blank" rel="external">http://registry.cnpmjs.org/</a></p>
 <p>npm config set registry <a href="http://registry.npm.taobao.org/" target="_blank" rel="external">http://registry.npm.taobao.org/</a></p>
+</blockquote>
+<p>另外，mac开发ionic时，需要安装Xcode,接着配置Xcode，</p>
+<ol>
+<li>Open Xcode preferences (Xcode &gt; Preferences…)</li>
+<li>Click the ‘Accounts’ tab</li>
+<li>Login with your Apple ID (+ &gt; Add Apple ID…)</li>
+</ol>
+<blockquote>
+<p>appid is not on any development teams</p>
+</blockquote>
+<p>解决方法，删除appid，再重新登下appid就可以了。</p>
+<p>接着：</p>
+<pre><code>&gt;ionic cordova build ios
+</code></pre><p>中途报了个错误，如下：</p>
+<pre><code>xcode-seect:error:tool &apos;xcodebuild&apos; requires Xcode,but active developer directory &apos;/Library/Developer/CommandLineTools&apos; is a command line tools instance
+</code></pre><p>解决措施，重新定义一下xcode的路径，例如我的</p>
+<blockquote>
+<p>sudo xcode-select –switch /Applications/Xcode.app</p>
+</blockquote>
+<p>mac ionic真机调试还需要装iOS-deploy，iOS-deploy是一个使用命令行安装ios app到连接的设备的工具，原理是根据os x命令行工程调用系统底层函数，获取连接的设备、查询/安装/卸载app。</p>
+<blockquote>
+<p>npm install -g ios-deploy</p>
 </blockquote>
 ]]></content>
       
