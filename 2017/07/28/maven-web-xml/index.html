@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
 <meta property="og:description" content="首先，maven工程中的web.xml配置文件不是必须的。 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; //xml的版本号为1.0，字符编码为utf-8     &amp;lt;web-app version=&amp;quot;2.5&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/j">
-<meta property="og:updated_time" content="2017-07-31T09:54:01.757Z">
+<meta property="og:updated_time" content="2017-08-01T02:58:47.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven-web-xml">
 <meta name="twitter:description" content="首先，maven工程中的web.xml配置文件不是必须的。 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; //xml的版本号为1.0，字符编码为utf-8     &amp;lt;web-app version=&amp;quot;2.5&amp;quot; xmlns=&amp;quot;http://java.sun.com/xml/ns/j">
@@ -126,6 +126,39 @@
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
     xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee 
     http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee &quot;&gt;
+    /**
+     * ContextLoaderListener加载内容
+     * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+     * @param param-name 设定上下文的参数名称。必须是唯一名称
+     * @param param-value  设定的参数名称的值
+     */
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:application-context.xml&lt;/param-value&gt; 
+    &lt;/context-param&gt;
+
+    &lt;listener&gt;
+        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+
+    /**
+     * DispatcherServlt加载内容
+     * 
+     */
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;/WEB-INF/servlet-context.xml&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
 
     //指定欢迎页面(个人理解这不是首页吗，欢迎页其实我一点都不欢迎你来访问)
     &lt;welcome-file-list&gt;
@@ -161,30 +194,13 @@
             &lt;param-value&gt;true&lt;/param-value&gt;
         &lt;/init-param&gt;
     &lt;/filter&gt;
-
-    //Spring MVC配置
-    &lt;servlet&gt;
-        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
-        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-        &lt;init-param&gt;
-            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-            &lt;param-value&gt;
-                /WEB-INF/servlet-context.xml
-            &lt;/param-value&gt;
-        &lt;/init-param&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-    &lt;/servlet&gt;
-    &lt;servlet-mapping&gt;
-        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
-        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-    &lt;/servlet-mapping&gt;
 &lt;/web-app&gt;
 </code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/" data-id="cj5ryq4c30005dgvdanq3dngq" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/" data-id="cj5tfb0y00007n0vd9eov3v2i" class="article-share-link">分享到</a>
       
 
       

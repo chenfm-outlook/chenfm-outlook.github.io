@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angular2-install | 陈菜鸡的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="/**  * 从github上下载angular2项目  * npm install国内有可能出错，我反正报错了。改为cnpm install  * 安装依赖  */ git clone https://github.com/angular/quickstart.git quickstart cd quickstart npm install  npm install   //ERR  npm E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular2-install">
+<meta property="og:url" content="https://chenfm-outlook.github.io/2017/08/01/angular2-install/index.html">
+<meta property="og:site_name" content="陈菜鸡的个人博客">
+<meta property="og:description" content="/**  * 从github上下载angular2项目  * npm install国内有可能出错，我反正报错了。改为cnpm install  * 安装依赖  */ git clone https://github.com/angular/quickstart.git quickstart cd quickstart npm install  npm install   //ERR  npm E">
+<meta property="og:updated_time" content="2017-08-01T10:10:34.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular2-install">
+<meta name="twitter:description" content="/**  * 从github上下载angular2项目  * npm install国内有可能出错，我反正报错了。改为cnpm install  * 安装依赖  */ git clone https://github.com/angular/quickstart.git quickstart cd quickstart npm install  npm install   //ERR  npm E">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">陈菜鸡的个人博客</div>
+      
+       <ul class="my-socials">
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/myself">就叫陈菜鸡吧</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">陈菜鸡的个人博客</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="搜索">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="chenfm-outlook.github.io">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/myself">就叫陈菜鸡吧</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-angular2-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/01/angular2-install/" class="article-date">
+  <time datetime="2017-08-01T09:06:10.000Z" itemprop="datePublished">2017-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angular2-install
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>/**
+ * 从github上下载angular2项目
+ * npm install国内有可能出错，我反正报错了。改为cnpm install
+ * 安装依赖
+ */
+git clone https://github.com/angular/quickstart.git quickstart
+cd quickstart
+npm install
+</code></pre><blockquote>
+<p>npm install   //ERR</p>
+</blockquote>
+<pre><code>npm ERR! sha1-/viqIjkh97QLu71MPtQwL2/QqBM= integrity checksum failed when using sha1: wanted sha1-/viqIjkh97QLu71MPtQwL2/QqBM= 
+but got sha1-QC6Yy3j8txJhU5Qkszs8/6/o6Is=. (474949 bytes)
+</code></pre><p>Windows删除不必要的文件</p>
+<pre><code>for /f %i in (non-essential-files.txt) do del %i /F /S /Q
+rd .git /s /q
+rd e2e /s /q
+</code></pre><p>quickstart/.editorconfig详解</p>
+<pre><code>/**
+ * EditorConfig帮助开发人员在不同的编辑器和IDE之间定义和维护一致的编码风格。
+ * *  匹配除/之外的任意字符串 [*]表示所有
+ * ** 匹配任意字符串
+ * ?  匹配任意单个字符
+ * [name]  匹配name字符
+ * [!name] 匹配非name字符
+ * {s1,s2,s3} 匹配任意给定的字符串(since 0.11.0)
+ * @param root: 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件。
+ * @param indent_style: 设置缩进风格，tab或者空格。tab是hard tabs，space为soft tabs(4个space)。
+ * @param indent_size: 缩进的宽度，即列数，整数。如果indent_style为tab，则此属性默认为tab_width。
+ * @param tab_width: 设置tab的列数。默认是indent_size。
+ * @param end_of_line： 换行符，lf、cr和crlf
+ * @param charset： 编码，latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用utf-8-bom。
+ * @param trim_trailing_whitespace： 设为true表示会除去换行行首的任意空白字符。
+ * @param insert_final_newline: 设为true表明使文件以一个空白行结尾
+ */
+# http://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+# Indentation override
+#[lib/**.js]
+#[{package.json,.travis.yml}]
+#[**/**.js]
+</code></pre><p>quickstart/bs-config.json 指定工程启动的根目录，例如这里是src</p>
+<pre><code>{
+  &quot;server&quot;: {
+    &quot;baseDir&quot;: &quot;src&quot;,
+    &quot;routes&quot;: {
+      &quot;/node_modules&quot;: &quot;node_modules&quot;
+    }
+  }
+}
+</code></pre><p><a href="https://segmentfault.com/a/1190000008563619" target="_blank" rel="external">https://segmentfault.com/a/1190000008563619</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/08/01/angular2-install/" data-id="cj5tfb0xo0003n0vd9uz1up83" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/01/ContextLoaderListene/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SpringMVC-Shiro-ContextLoaderListene</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 就叫陈菜鸡吧<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/myself" class="mobile-nav-link">就叫陈菜鸡吧</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

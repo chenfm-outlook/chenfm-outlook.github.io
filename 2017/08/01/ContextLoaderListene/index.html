@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SpringMVC-Shiro-ContextLoaderListene | 陈菜鸡的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="/**  * Web容器加载顺序ServletContext--context-param--listener--filter--servlet  * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。  * @param param-name 设定上下文的参数名称。必须是唯一名称  * @param param-value  设定的参数名称的值  */ &amp;lt;c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC-Shiro-ContextLoaderListene">
+<meta property="og:url" content="https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/index.html">
+<meta property="og:site_name" content="陈菜鸡的个人博客">
+<meta property="og:description" content="/**  * Web容器加载顺序ServletContext--context-param--listener--filter--servlet  * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。  * @param param-name 设定上下文的参数名称。必须是唯一名称  * @param param-value  设定的参数名称的值  */ &amp;lt;c">
+<meta property="og:updated_time" content="2017-08-01T03:33:17.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringMVC-Shiro-ContextLoaderListene">
+<meta name="twitter:description" content="/**  * Web容器加载顺序ServletContext--context-param--listener--filter--servlet  * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。  * @param param-name 设定上下文的参数名称。必须是唯一名称  * @param param-value  设定的参数名称的值  */ &amp;lt;c">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">陈菜鸡的个人博客</div>
+      
+       <ul class="my-socials">
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/myself">就叫陈菜鸡吧</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">陈菜鸡的个人博客</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="搜索">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="chenfm-outlook.github.io">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/myself">就叫陈菜鸡吧</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ContextLoaderListene" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/01/ContextLoaderListene/" class="article-date">
+  <time datetime="2017-08-01T03:01:04.000Z" itemprop="datePublished">2017-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringMVC-Shiro-ContextLoaderListene
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>/**
+ * Web容器加载顺序ServletContext--context-param--listener--filter--servlet
+ * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+ * @param param-name 设定上下文的参数名称。必须是唯一名称
+ * @param param-value  设定的参数名称的值
+ */
+&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:application-context.xml&lt;/param-value&gt; 
+&lt;/context-param&gt;
+
+/**
+ * 此监听器出用于主要为了解决java.beans.Introspector导致内存泄漏的问题 
+ * 此监听器应该配置在web.xml中与Spring相关监听器中的第一个位置(也要在ContextLoaderListener的前面) 
+ */
+&lt;listener&gt;  
+    &lt;listener-class&gt;org.springframework.web.util.IntrospectorCleanupListener&lt;/listener-class&gt;  
+&lt;/listener&gt; 
+
+/**
+ * 实例化Spring容器
+ * 应用启动时,该监听器被执行,它会读取Spring相关配置文件,其默认会到WEB-INF中查找applicationContext.xml
+ */
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+/**
+ * 配置Shiro过滤器,先让Shiro过滤系统接收到的请求
+ * 这里filter-name必须对应applicationContext.xml中定义的&lt;bean id=&quot;shiroFilter&quot;/&gt;
+ * 使用[/*]匹配所有请求,保证所有的可控请求都经过Shiro的过滤
+ * 通常会将此filter-mapping放置到最前面(即其他filter-mapping前面),以保证它是过滤器链中第一个起作用的
+ * @param param-value 该值缺省为false,表示生命周期由SpringApplicationContext管理 设置为true则表示由ServletContainer管理
+ */
+&lt;filter&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;  
+    &lt;init-param&gt;  
+        &lt;param-name&gt;targetFilterLifecycle&lt;/param-name&gt;  
+        &lt;param-value&gt;true&lt;/param-value&gt;  
+    &lt;/init-param&gt;  
+&lt;/filter&gt;  
+&lt;filter-mapping&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  
+&lt;/filter-mapping&gt; 
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/" data-id="cj5tfb0xe0000n0vdma8zgn36" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/01/angular2-install/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          angular2-install
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/28/list/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pirated software</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 就叫陈菜鸡吧<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/myself" class="mobile-nav-link">就叫陈菜鸡吧</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

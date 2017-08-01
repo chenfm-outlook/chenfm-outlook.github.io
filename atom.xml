@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-07-28T09:48:42.218Z</updated>
+  <updated>2017-08-01T10:10:34.768Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -14,6 +14,160 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>angular2-install</title>
+    <link href="https://chenfm-outlook.github.io/2017/08/01/angular2-install/"/>
+    <id>https://chenfm-outlook.github.io/2017/08/01/angular2-install/</id>
+    <published>2017-08-01T09:06:10.000Z</published>
+    <updated>2017-08-01T10:10:34.768Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/**
+ * 从github上下载angular2项目
+ * npm install国内有可能出错，我反正报错了。改为cnpm install
+ * 安装依赖
+ */
+git clone https://github.com/angular/quickstart.git quickstart
+cd quickstart
+npm install
+</code></pre><blockquote>
+<p>npm install   //ERR</p>
+</blockquote>
+<pre><code>npm ERR! sha1-/viqIjkh97QLu71MPtQwL2/QqBM= integrity checksum failed when using sha1: wanted sha1-/viqIjkh97QLu71MPtQwL2/QqBM= 
+but got sha1-QC6Yy3j8txJhU5Qkszs8/6/o6Is=. (474949 bytes)
+</code></pre><p>Windows删除不必要的文件</p>
+<pre><code>for /f %i in (non-essential-files.txt) do del %i /F /S /Q
+rd .git /s /q
+rd e2e /s /q
+</code></pre><p>quickstart/.editorconfig详解</p>
+<pre><code>/**
+ * EditorConfig帮助开发人员在不同的编辑器和IDE之间定义和维护一致的编码风格。
+ * *  匹配除/之外的任意字符串 [*]表示所有
+ * ** 匹配任意字符串
+ * ?  匹配任意单个字符
+ * [name]  匹配name字符
+ * [!name] 匹配非name字符
+ * {s1,s2,s3} 匹配任意给定的字符串(since 0.11.0)
+ * @param root: 表明是最顶层的配置文件，发现设为true时，才会停止查找.editorconfig文件。
+ * @param indent_style: 设置缩进风格，tab或者空格。tab是hard tabs，space为soft tabs(4个space)。
+ * @param indent_size: 缩进的宽度，即列数，整数。如果indent_style为tab，则此属性默认为tab_width。
+ * @param tab_width: 设置tab的列数。默认是indent_size。
+ * @param end_of_line： 换行符，lf、cr和crlf
+ * @param charset： 编码，latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用utf-8-bom。
+ * @param trim_trailing_whitespace： 设为true表示会除去换行行首的任意空白字符。
+ * @param insert_final_newline: 设为true表明使文件以一个空白行结尾
+ */
+# http://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+# Indentation override
+#[lib/**.js]
+#[{package.json,.travis.yml}]
+#[**/**.js]
+</code></pre><p>quickstart/bs-config.json 指定工程启动的根目录，例如这里是src</p>
+<pre><code>{
+  &quot;server&quot;: {
+    &quot;baseDir&quot;: &quot;src&quot;,
+    &quot;routes&quot;: {
+      &quot;/node_modules&quot;: &quot;node_modules&quot;
+    }
+  }
+}
+</code></pre><p><a href="https://segmentfault.com/a/1190000008563619" target="_blank" rel="external">https://segmentfault.com/a/1190000008563619</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;/**
+ * 从github上下载angular2项目
+ * npm install国内有可能出错，我反正报错了。改为cnpm install
+ * 安装依赖
+ */
+git clone https://github.com/angular/quicksta
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC-Shiro-ContextLoaderListene</title>
+    <link href="https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/"/>
+    <id>https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/</id>
+    <published>2017-08-01T03:01:04.000Z</published>
+    <updated>2017-08-01T03:33:17.145Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/**
+ * Web容器加载顺序ServletContext--context-param--listener--filter--servlet
+ * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+ * @param param-name 设定上下文的参数名称。必须是唯一名称
+ * @param param-value  设定的参数名称的值
+ */
+&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:application-context.xml&lt;/param-value&gt; 
+&lt;/context-param&gt;
+
+/**
+ * 此监听器出用于主要为了解决java.beans.Introspector导致内存泄漏的问题 
+ * 此监听器应该配置在web.xml中与Spring相关监听器中的第一个位置(也要在ContextLoaderListener的前面) 
+ */
+&lt;listener&gt;  
+    &lt;listener-class&gt;org.springframework.web.util.IntrospectorCleanupListener&lt;/listener-class&gt;  
+&lt;/listener&gt; 
+
+/**
+ * 实例化Spring容器
+ * 应用启动时,该监听器被执行,它会读取Spring相关配置文件,其默认会到WEB-INF中查找applicationContext.xml
+ */
+&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+
+/**
+ * 配置Shiro过滤器,先让Shiro过滤系统接收到的请求
+ * 这里filter-name必须对应applicationContext.xml中定义的&lt;bean id=&quot;shiroFilter&quot;/&gt;
+ * 使用[/*]匹配所有请求,保证所有的可控请求都经过Shiro的过滤
+ * 通常会将此filter-mapping放置到最前面(即其他filter-mapping前面),以保证它是过滤器链中第一个起作用的
+ * @param param-value 该值缺省为false,表示生命周期由SpringApplicationContext管理 设置为true则表示由ServletContainer管理
+ */
+&lt;filter&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;  
+    &lt;init-param&gt;  
+        &lt;param-name&gt;targetFilterLifecycle&lt;/param-name&gt;  
+        &lt;param-value&gt;true&lt;/param-value&gt;  
+    &lt;/init-param&gt;  
+&lt;/filter&gt;  
+&lt;filter-mapping&gt;  
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;  
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  
+&lt;/filter-mapping&gt; 
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;/**
+ * Web容器加载顺序ServletContext--context-param--listener--filter--servlet
+ * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+ * @param p
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>pirated software</title>
@@ -44,7 +198,7 @@
     <link href="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/"/>
     <id>https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/</id>
     <published>2017-07-28T01:37:09.000Z</published>
-    <updated>2017-07-31T09:54:01.757Z</updated>
+    <updated>2017-08-01T02:58:47.718Z</updated>
     
     <content type="html"><![CDATA[<p>首先，maven工程中的web.xml配置文件不是必须的。</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; //xml的版本号为1.0，字符编码为utf-8
@@ -52,6 +206,39 @@
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
     xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee 
     http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/javaee &quot;&gt;
+    /**
+     * ContextLoaderListener加载内容
+     * context-param用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+     * @param param-name 设定上下文的参数名称。必须是唯一名称
+     * @param param-value  设定的参数名称的值
+     */
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:application-context.xml&lt;/param-value&gt; 
+    &lt;/context-param&gt;
+
+    &lt;listener&gt;
+        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+
+    /**
+     * DispatcherServlt加载内容
+     * 
+     */
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;/WEB-INF/servlet-context.xml&lt;/param-value&gt;
+        &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
 
     //指定欢迎页面(个人理解这不是首页吗，欢迎页其实我一点都不欢迎你来访问)
     &lt;welcome-file-list&gt;
@@ -87,23 +274,6 @@
             &lt;param-value&gt;true&lt;/param-value&gt;
         &lt;/init-param&gt;
     &lt;/filter&gt;
-
-    //Spring MVC配置
-    &lt;servlet&gt;
-        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
-        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-        &lt;init-param&gt;
-            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-            &lt;param-value&gt;
-                /WEB-INF/servlet-context.xml
-            &lt;/param-value&gt;
-        &lt;/init-param&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-    &lt;/servlet&gt;
-    &lt;servlet-mapping&gt;
-        &lt;servlet-name&gt;Spring MVC Dispatcher Servlet&lt;/servlet-name&gt;
-        &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
-    &lt;/servlet-mapping&gt;
 &lt;/web-app&gt;
 </code></pre>]]></content>
     
