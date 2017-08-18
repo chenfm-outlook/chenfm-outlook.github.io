@@ -98,6 +98,208 @@
   
 
     
+    <article id="post-amaze-summarize" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/17/amaze-summarize/" class="article-date">
+  <time datetime="2017-08-17T07:57:48.017Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: amaze-summarize<br>date: 2017-08-17 15:57:47<br>amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。</p>
+<ol>
+<li><p>Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放</p>
+<pre><code>.am-g {
+     margin: 0 auto;
+      width: 100%;
+}
+</code></pre><p> 网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的内边距（padding）。</p>
+<pre><code>[class*=&quot;am-u-&quot;] {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  float: left;
+  position: relative;
+}
+.am-g-collapse [class*=&quot;am-u-&quot;] {
+  padding-left: 0;
+  padding-right: 0;
+}
+</code></pre><p> 列边距啪啪啪，添加 am-u-sm-offset-<em>、am-u-md-offset-</em>、am-u-lg-offset-<em> 设置列的左边距。am-u-sm-push-</em>则相反</p>
+<pre><code>.am-u-sm-offset-1 {
+     margin-left: 8.33333333%;
+  }
+.am-u-sm-push-11 {
+     left: 91.66666667%;
+}
+</code></pre><p> 单独使用.am-container形成容器，会产生左右内边距，注意：在手机端(&lt;641px)为1rem</p>
+<pre><code>.am-container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  max-width: 1000px;
+}
+@media only screen and (min-width:641px) {
+  .am-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+</code></pre><p> 总结：使用容器，网格布局会形成内边距，去除容器内边距</p>
+<blockquote>
+<p>am-container &gt; .am-g</p>
+</blockquote>
+<p> 去除网格布局内边距</p>
+<blockquote>
+<p>.am-g-collapse [class*=”am-u-“]</p>
+</blockquote>
+</li>
+<li><p>Amaze UI在设计中，horizontal表示水平方向；scrollable表示垂直方向。例如水平滚动：内容超出容器宽度时显示水平滚动条</p>
+<blockquote>
+<p>am-scrollable-horizontal<br>垂直滚动: 内容超过设置的高度以后显示滚动条，默认设置的高度为 240px<br>am-scrollable -vertical</p>
+</blockquote>
+<p>Amaze UI尺寸定于</p>
+<blockquote>
+<p>-xs最小 -sm小 -default中等 -lg大 -xl超大</p>
+</blockquote>
+<pre><code>am-text-{size} 文字大小
+am-btn-{size} 按钮大小
+am-input-{size} 输入框文字大小，个人理解行高。只支持sm和lg(2.6版本)
+am-icon-sm 放大150%
+am-icon-md 放大 200% (不写默认)
+am-icon-lg 放大 250%
+</code></pre><p>Amaze UI内外边距辅助类</p>
+<p>四周外边距</p>
+<pre><code>.am-margin
+.am-margin-{size}
+</code></pre><p>水平方向外边距</p>
+<pre><code>.am-margin-horizontal
+.am-margin-horizontal-{size}
+</code></pre><p>垂直方向外边距</p>
+<pre><code>.am-margin-vertical
+.am-margin-vertical-{size}
+</code></pre><p>左外边距</p>
+<pre><code>.am-margin-left
+.am-margin-left-{size}
+</code></pre><p>其它同理可得</p>
+</li>
+<li><p>Amaze UI定义了几个常见的颜色</p>
+<blockquote>
+<p>default-默认；primary-蓝色；secondary-浅蓝色；success-绿色；warning-橙色；danger-红色；link-透明</p>
+</blockquote>
+<pre><code>am-text-{color} 设置文字颜色
+am-btn-{color} 按钮设置颜色
+</code></pre><p>注意：button按钮点击会产生border，假如用了link样式就出现白底蓝边，用a标签可以解决</p>
+</li>
+<li><p>Amaze UI给img定义了一些简单的样式，去掉图片原本的边框线，所以img元素中展示的其本身大小，可以通过.am-img-responsive满屏撑满</p>
+<pre><code>.am-img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+</code></pre><p> 也可以通过.am-img-thumbnail添加边宽线</p>
+</li>
+<li><p>在Amaze UI使用表单时，需要在容器上添加 .am-form class，容器里的子元素才会应用 Amaze UI 定义的样式。</p>
+<p> 表单水平排列。在form表单中添加 .am-form-horizontal class 并结合网格系统使用</p>
+<pre><code>&lt;form class=&quot;am-form am-form-horizontal&quot;&gt;
+      &lt;div class=&quot;am-form-group&quot;&gt;
+        &lt;label for=&quot;doc-ipt-3&quot; class=&quot;am-u-sm-2 am-form-label&quot;&gt;电子邮件&lt;/label&gt;
+        &lt;div class=&quot;am-u-sm-10&quot;&gt;
+              &lt;input type=&quot;email&quot; id=&quot;doc-ipt-3&quot; placeholder=&quot;输入你的电子邮件&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p> 简答的来说，am-form-group中的元素会一行内排列</p>
+<p> 行内排列，在外围容器上添加 .am-form-inline。 注意： 行内排列的元素并没有设置右边距，默认使用 inline-block 元素的间距，压缩 HTML 后行内表单元素的右边距会消失，需要自行处理。</p>
+</li>
+</ol>
+<pre><code>    &lt;form class=&quot;am-form-inline&quot; role=&quot;form&quot;&gt;
+          &lt;div class=&quot;am-form-group&quot;&gt;
+            &lt;input type=&quot;email&quot; class=&quot;am-form-field&quot; placeholder=&quot;电子邮件&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;am-form-group&quot;&gt;
+            &lt;input type=&quot;password&quot; class=&quot;am-form-field&quot; placeholder=&quot;密码&quot;&gt;
+          &lt;/div&gt;
+      &lt;/form&gt;
+
+简答的来说，am-form-group中的元素会从左往右进行排列
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/" data-id="cj6hm0mgh0000w4vd0lvd3mjq" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+    
+  
+
+    
+    <article id="post-angular2-bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/02/angular2-bootstrap/" class="article-date">
+  <time datetime="2017-08-02T03:44:49.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/02/angular2-bootstrap/">angular2-bootstrap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>angular2引入ng-bootstrap</p>
+<p>ng-bootstrap 使用 bootstrap 4.0 alpha2 ， 因此需要先下载 bootstrap ， 推荐使用 npm 包的形式</p>
+<blockquote>
+<p>npm install bootstrap@4.0.0-alpha.2 –save</p>
+</blockquote>
+<p>接着下载 ng-bootstrap ， 同样使用 npm 包的形式</p>
+<p>npm install @ng-bootstrap/ng-bootstrap –save</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://chenfm-outlook.github.io/2017/08/02/angular2-bootstrap/" data-id="cj6hm0mj30009w4vdja2vvxg8" class="article-share-link">分享到</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+    
+  
+
+    
     <article id="post-angular2-install" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/01/angular2-install/" class="article-date">
@@ -137,7 +339,11 @@ but got sha1-QC6Yy3j8txJhU5Qkszs8/6/o6Is=. (474949 bytes)
 <pre><code>for /f %i in (non-essential-files.txt) do del %i /F /S /Q
 rd .git /s /q
 rd e2e /s /q
-</code></pre><p>quickstart/.editorconfig详解</p>
+</code></pre><p>最后本地启动anular2工程</p>
+<blockquote>
+<p>npm start</p>
+</blockquote>
+<p>quickstart/.editorconfig详解</p>
 <pre><code>/**
  * EditorConfig帮助开发人员在不同的编辑器和IDE之间定义和维护一致的编码风格。
  * *  匹配除/之外的任意字符串 [*]表示所有
@@ -189,7 +395,7 @@ trim_trailing_whitespace = false
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/08/01/angular2-install/" data-id="cj5tfb0xo0003n0vd9uz1up83" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/08/01/angular2-install/" data-id="cj6hm0mji000cw4vdpna3xilz" class="article-share-link">分享到</a>
       
 
       
@@ -276,7 +482,7 @@ trim_trailing_whitespace = false
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/" data-id="cj5tfb0xe0000n0vdma8zgn36" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/08/01/ContextLoaderListene/" data-id="cj6hm0mhs0002w4vdndzu304g" class="article-share-link">分享到</a>
       
 
       
@@ -321,7 +527,7 @@ trim_trailing_whitespace = false
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/28/list/" data-id="cj5tfb0xz0006n0vdk9lb7e2w" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/28/list/" data-id="cj6hm0min0007w4vdj6ienerr" class="article-share-link">分享到</a>
       
 
       
@@ -437,7 +643,7 @@ trim_trailing_whitespace = false
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/" data-id="cj5tfb0y00007n0vd9eov3v2i" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/28/maven-web-xml/" data-id="cj6hm0mj30008w4vd2e4y00n0" class="article-share-link">分享到</a>
       
 
       
@@ -481,7 +687,7 @@ trim_trailing_whitespace = false
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/26/andriod-webview/" data-id="cj5tfb0xk0002n0vdys3vcdrx" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/26/andriod-webview/" data-id="cj6hm0mgx0001w4vd5wuucenu" class="article-share-link">分享到</a>
       
 
       
@@ -658,7 +864,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj5tfb0yi0009n0vd2q8xivdw" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/24/ionic-install/" data-id="cj6hm0mkd000dw4vdsydzl5by" class="article-share-link">分享到</a>
       
 
       
@@ -706,7 +912,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/" data-id="cj5tfb0yz000bn0vdvnjj7mzb" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/spring-mvc-process/" data-id="cj6hm0mji000bw4vd39680im7" class="article-share-link">分享到</a>
       
 
       
@@ -791,145 +997,7 @@ if(!file .exists()  &amp;&amp; !file .isDirectory()){
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/" data-id="cj5tfb0y50008n0vdgtdhjplc" class="article-share-link">分享到</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-    
-  
-
-    
-    <article id="post-angular-ueditor" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/18/angular-ueditor/" class="article-date">
-  <time datetime="2017-07-18T06:36:19.000Z" itemprop="datePublished">2017-07-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/angular-ueditor/">非指令命令下调用ueditor，angular报错</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>非angular指令下引入百度ueditor，路由切换之后，就会报错。例如:</p>
-<pre><code>TyepError:Cannot read property &apos;getSelection&apos; of undefined
-at dom.Range.Range.select (ueditor.all.js:5746)
-at dom.Range.setCursor (ueditor.all.js:5301
-at UE.Editor.execCommand (ueditor.all.js:13736)
-at UE.Editor._callCmdFn (ueditor.all.js:7587)
-at UE.Editor.execCommand (ueditor.all.js:7615)
-at UE.Editor.me.execCommand (ueditor.all.js:20578)
-at m.$scope.addNews (cms-controller.js:181)
-at cms-controller.js:246
-at angular.min.js:91
-at angular.min.js:123
-</code></pre><p>现在就使用我们的大杀器。</p>
-<pre><code>$scope.$on(&apos;$destroy&apos;, function() {
-     ue.destroy();
-});
-</code></pre><p>通过广播的方法，在路由切换的过程中，将ueditor销毁掉。懒人就有懒人解决的方法，不知道这个方法好不好，但是目的是达到辣。   </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://chenfm-outlook.github.io/2017/07/18/angular-ueditor/" data-id="cj5tfb0xs0005n0vdmv7ikd94" class="article-share-link">分享到</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-    
-  
-
-    
-    <article id="post-ajax-cross-domain" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/17/ajax-cross-domain/" class="article-date">
-  <time datetime="2017-07-17T09:20:31.000Z" itemprop="datePublished">2017-07-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/ajax-cross-domain/">本是同根生，相煎何太急！ajax跨域请求</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是跨域，简单点来说，你可以在自己家里进进出出，但是到别人家里就不行了。你的征得主人的意见才行。</p>
-<p>vampires are invited into the house</p>
-<h2 id="spring-mvc-mybatis"><a href="#spring-mvc-mybatis" class="headerlink" title="spring mvc mybatis"></a>spring mvc mybatis</h2><p>spring MVC mybatis解决Ajax跨域请求，我是忍住不笑了。jsonp，代理，h5…都是弱爆了。</p>
-<p>废话不多说，上代码</p>
-<blockquote>
-<p>@CrossOrigin()</p>
-</blockquote>
-<p>没错，就是这么的垃圾。一个注解完成所有的需求。但是它的唯一缺陷就是spring mvc需要4.2.5以上。</p>
-<pre><code>&lt;properties&gt;
-    &lt;spring.version&gt;4.2.5.RELEASE&lt;/spring.version&gt;
-    &lt;spring-mybatis.version&gt;1.1.1&lt;/spring-mybatis.version&gt;
-    &lt;shiro.version&gt;1.2.3&lt;/shiro.version&gt;
-    &lt;mybatis-spring&gt;1.1.1&lt;/mybatis-spring&gt;
-    &lt;mybatis-paginator&gt;1.2.7&lt;/mybatis-paginator&gt;
-&lt;/properties&gt;
-</code></pre><h2 id="Access-control-Allow-Origin"><a href="#Access-control-Allow-Origin" class="headerlink" title="Access-control-Allow-Origin"></a>Access-control-Allow-Origin</h2><p>后台通过response.setHeader()的方式实现跨域请求，前端$.ajax()的方法设置请求头恕我才疏学浅，还没研究出来。有会的人请联系我。</p>
-<blockquote>
-<p>邮箱:1028784495@qq.com，QQ加我也没事情。</p>
-</blockquote>
-<p>java后端代码</p>
-<pre><code>public Map&lt;String,Object&gt; getArticleById(Integer isid , HttpServletResponse response){
-    Map&lt;String,Object&gt; resultMap = new HashMap&lt;String, Object&gt;();
-    try{
-        response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);// 指定允许其他域名访问 * 表示所有
-        //response.setHeader(&quot;Access-Control-Allow-Headers&quot;, &quot;X-Requested-With,content-type,token&quot;); 响应类型  
-        //response.setHeader(&quot;Access-Control-Allow-Methods&quot;, &quot;GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH&quot;); 响应头设置  
-    ……
-</code></pre><p>$.ajax前端代码</p>
-<blockquote>
-<p>url:’<a href="http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0" target="_blank" rel="external">http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0</a>‘,</p>
-</blockquote>
-<p>尤其得注意url中的http：//别忘记加辣，一开始本菜鸡没加，后台都请求不过去，还以为是跨域请求写错辣，其实是你的url写错辣。</p>
-<pre><code>$.ajax({
-    url:&apos;http://localhost:3333/AppCmsArticleAction/getArticleByPage.do?isid=0&apos;,
-    type:&apos;get&apos;,
-    success:function(){}
-    ……
-})
-</code></pre><p>由于这是H5，所以不支持IE8,但是这年头大家都开始不care辣。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://chenfm-outlook.github.io/2017/07/17/ajax-cross-domain/" data-id="cj5tfb0yy000an0vdhyfdjb00" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/07/19/java-file-upload/" data-id="cj6hm0mji000aw4vd9if6wuxl" class="article-share-link">分享到</a>
       
 
       
