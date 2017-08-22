@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chenfm-outlook.github.io/"/>
-  <updated>2017-08-22T06:24:16.617Z</updated>
+  <updated>2017-08-22T06:36:05.612Z</updated>
   <id>https://chenfm-outlook.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/"/>
     <id>https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/</id>
     <published>2017-08-17T07:57:48.017Z</published>
-    <updated>2017-08-22T06:24:16.617Z</updated>
+    <updated>2017-08-22T06:36:05.612Z</updated>
     
     <content type="html"><![CDATA[<p>amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。</p>
 <p>Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放</p>
@@ -172,7 +172,7 @@ resetText 重置以后的显示的文字，默认为原来的内容
 </code></pre><p>左外边距：</p>
 <pre><code>.am-margin-left
 .am-margin-left-{size}
-</code></pre><p>其它同理可得</p>
+</code></pre><p>其padding同理可得</p>
 <p>Amaze UI给img定义了一些简单的样式，去掉图片原本的边框线，所以img元素中展示的其本身大小，可以通过.am-img-responsive满屏撑满</p>
 <pre><code>.am-img-responsive {
     display: block;
