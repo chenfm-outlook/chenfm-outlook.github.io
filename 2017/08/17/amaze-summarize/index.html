@@ -5,16 +5,16 @@
   
   <title>陈菜鸡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: amaze-summarizedate: 2017-08-17 15:57:47amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。  Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%;">
+  <meta name="description" content="amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。 Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%; } 网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="陈菜鸡的个人博客">
 <meta property="og:url" content="https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/index.html">
 <meta property="og:site_name" content="陈菜鸡的个人博客">
-<meta property="og:description" content="title: amaze-summarizedate: 2017-08-17 15:57:47amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。  Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%;">
-<meta property="og:updated_time" content="2017-08-18T06:20:05.145Z">
+<meta property="og:description" content="amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。 Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%; } 网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的">
+<meta property="og:updated_time" content="2017-08-22T06:24:16.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="陈菜鸡的个人博客">
-<meta name="twitter:description" content="title: amaze-summarizedate: 2017-08-17 15:57:47amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。  Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%;">
+<meta name="twitter:description" content="amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。 Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放 .am-g {      margin: 0 auto;       width: 100%; } 网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的">
   
   
     <link rel="icon" href="/favicon.png">
@@ -110,15 +110,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: amaze-summarize<br>date: 2017-08-17 15:57:47<br>amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。</p>
-<ol>
-<li><p>Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放</p>
+        <p>amaze ui还是很强大的，用的熟练的话工作效率是能有很大的提升，但是说实话，固定的样式是有点丑。</p>
+<p>Amaze UI 中， 行 .am-g 的宽度被设置为 100%， 未限定最大宽度，会随着窗口自动缩放</p>
 <pre><code>.am-g {
      margin: 0 auto;
       width: 100%;
 }
-</code></pre><p> 网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的内边距（padding）。</p>
+</code></pre><p>网格布局会形成左右内边距，可以在行 .am-g 上添加 .am-g-collapse，移除列的内边距（padding）。</p>
 <pre><code>[class*=&quot;am-u-&quot;] {
   width: 100%;
   padding-left: 1rem;
@@ -130,14 +128,22 @@
   padding-left: 0;
   padding-right: 0;
 }
-</code></pre><p> 列边距啪啪啪，添加 am-u-sm-offset-<em>、am-u-md-offset-</em>、am-u-lg-offset-<em> 设置列的左边距。am-u-sm-push-</em>则相反</p>
+</code></pre><p>注意：如果am-u-xx-n中不足12等分，则最后一个am-u-xx-n向右浮动。</p>
+<pre><code>[class*=&quot;am-u-&quot;] + [class*=&quot;am-u-&quot;]:last-child {
+      float: right;
+}
+</code></pre><p>因此，可以在最后一列加上.am-u-end使其左浮动</p>
+<pre><code>[class*=&quot;am-u-&quot;] + [class*=&quot;am-u-&quot;]:last-child {
+      float: right;
+}
+</code></pre><p>列边距啪啪啪，添加 am-u-sm-offset-<em>、am-u-sm-offset-</em>、am-u-lg-offset-<em> 设置列的左边距。am-u-sm-push-</em>则相反</p>
 <pre><code>.am-u-sm-offset-1 {
      margin-left: 8.33333333%;
   }
 .am-u-sm-push-11 {
      left: 91.66666667%;
 }
-</code></pre><p> 单独使用.am-container形成容器，会产生左右内边距，注意：在手机端(&lt;641px)为1rem</p>
+</code></pre><p>单独使用.am-container形成容器，会产生左右内边距，注意：在手机端(&lt;641px)为1rem</p>
 <pre><code>.am-container {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -155,20 +161,35 @@
     padding-right: 1.5rem;
   }
 }
-</code></pre><p> 总结：使用容器，网格布局会形成内边距，去除容器内边距</p>
+</code></pre><p>总结：Amaze UI使用通过am-g或与am-container形成不带最大宽度和带最大宽度为1000px的行布局，列布局则通过am-u-xx-n自定义布局</p>
+<pre><code>带最大宽度为1000px的行布局，可在行 .am-g 上添加 .am-g-collapse，    移除.am-container的内边距
+&lt;div class=&quot;am-container&quot;&gt;
+    &lt;div class=&quot;am-g&quot;&gt;
+        &lt;am-u-xx-n&gt;&lt;/am-u-xx-n&gt; //自定义
+    &lt;/div&gt;
+&lt;/div&gt;
+
+满屏铺满的行布局，已取消内边距。在行 .am-g 上添加 .am-g-collapse，移除列的内边距（padding）。
+&lt;div class=&quot;am-g am-g-collapse&quot;&gt;
+    &lt;am-u-xx-n&gt;&lt;/am-u-xx-n&gt; //自定义
+&lt;/div&gt;
+</code></pre><p>浮动相关</p>
 <blockquote>
-<p>am-container &gt; .am-g</p>
+<p>am-fl 左浮动  .am-fr 右浮动  .am-center 水平居中  .am-cf 清除浮动</p>
 </blockquote>
-<p> 去除网格布局内边距</p>
-<blockquote>
-<p>.am-g-collapse [class*=”am-u-“]</p>
-</blockquote>
-</li>
-<li><p>Amaze UI在设计中，horizontal表示水平方向；scrollable表示垂直方向。例如水平滚动：内容超出容器宽度时显示水平滚动条</p>
-<blockquote>
-<p>am-scrollable-horizontal<br>垂直滚动: 内容超过设置的高度以后显示滚动条，默认设置的高度为 240px<br>am-scrollable -vertical</p>
-</blockquote>
-<p>Amaze UI尺寸定于</p>
+<p>.am-align-xx浮动,与普通的左浮动右浮动相比较差不多，只不过是将浮动的元素加了自身浮动相反的外边距和底部边距</p>
+<pre><code>[class*=&apos;am-align-&apos;] {
+  margin-bottom: 1rem;
+}
+.am-align-left {
+  margin-right: 1rem;
+  float: left;
+}
+.am-align-right {
+  margin-left: 1rem;
+  float: right;
+}
+</code></pre><p>Amaze UI尺寸定于</p>
 <blockquote>
 <p>-xs最小 -sm小 -default中等 -lg大 -xl超大</p>
 </blockquote>
@@ -178,39 +199,77 @@ am-input-{size} 输入框文字大小，个人理解行高。只支持sm和lg(2.
 am-icon-sm 放大150%
 am-icon-md 放大 200% (不写默认)
 am-icon-lg 放大 250%
-</code></pre><p>Amaze UI内外边距辅助类</p>
-<p>四周外边距</p>
-<pre><code>.am-margin
-.am-margin-{size}
-</code></pre><p>水平方向外边距</p>
-<pre><code>.am-margin-horizontal
-.am-margin-horizontal-{size}
-</code></pre><p>垂直方向外边距</p>
-<pre><code>.am-margin-vertical
-.am-margin-vertical-{size}
-</code></pre><p>左外边距</p>
-<pre><code>.am-margin-left
-.am-margin-left-{size}
-</code></pre><p>其它同理可得</p>
-</li>
-<li><p>Amaze UI定义了几个常见的颜色</p>
+</code></pre><p>Amaze UI定义了几个常见的颜色</p>
 <blockquote>
 <p>default-默认；primary-蓝色；secondary-浅蓝色；success-绿色；warning-橙色；danger-红色；link-透明</p>
 </blockquote>
 <pre><code>am-text-{color} 设置文字颜色
 am-btn-{color} 按钮设置颜色
-</code></pre><p>注意：button按钮点击会产生border，假如用了link样式就出现白底蓝边，用a标签可以解决</p>
-</li>
-<li><p>Amaze UI给img定义了一些简单的样式，去掉图片原本的边框线，所以img元素中展示的其本身大小，可以通过.am-img-responsive满屏撑满</p>
+</code></pre><p>通过上面的尺寸、颜色就能很快的定义一个amaze ui的button，例如</p>
+<pre><code>&lt;button type=&quot;button&quot; class=&quot;am-btn am-btn-default am-radius&quot;&gt;默认样式&lt;/button&gt;
+</code></pre><p>在按钮样式的基础上添加 .am-btn class表明这是amaze ui按钮，添加.am-btn-{color}设置颜色；添加.am-btn-{size}设置大小，不写默认；添加.am-radius创建圆角按钮。</p>
+<p>块级按钮，添加 .am-btn-block class。</p>
+<pre><code>.am-btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+</code></pre><p>源码可见：button为块级元素，取消内边距，宽度100%，铺满整个div。</p>
+<p>带有Icon图标的按钮</p>
+<pre><code>&lt;button class=&quot;am-btn am-btn-default&quot;&gt;
+  &lt;i class=&quot;am-icon-cog&quot;&gt;&lt;/i&gt;
+  设置
+&lt;/button&gt;
+</code></pre><p>跟本身的按钮使用方式是一模一样的，通过在内部加i标签，形成icon图标。</p>
+<p>注意：button按钮点击会产生border，假如用了link样式就出现白底蓝边，用a标签可以解决</p>
+<p>button JS交互 loading状态</p>
+<pre><code>&lt;button type=&quot;button&quot; class=&quot;am-btn am-btn-primary btn-loading-example&quot; 
+    data-am-loading=&quot;{spinner: &apos;circle-o-notch&apos;, loadingText: &apos;加载中...&apos;, resetText: &apos;加载过了&apos;}&quot;&gt;
+    按钮 - button 元素
+&lt;/button&gt;
+
+spinner 加载动画图标，适用于支持 CSS3 动画、非 input 元素，写图标名称即可
+loadingText 加载时显示的文字， 默认为 loading
+resetText 重置以后的显示的文字，默认为原来的内容
+</code></pre><p>js调用</p>
+<pre><code>$(&apos;.btn-loading-example&apos;).click(function () {
+      var $btn = $(this)
+      $btn.button(&apos;loading&apos;);//loading状态    
+    $btn.button(&apos;reset&apos;);//复原
+});
+</code></pre><p>Amaze UI内外边距辅助类</p>
+<p>Amaze UI在设计中，horizontal表示水平方向；scrollable表示垂直方向。</p>
+<p>水平滚动：内容超出容器宽度时显示水平滚动条</p>
+<blockquote>
+<p>am-scrollable-horizontal</p>
+</blockquote>
+<p>垂直滚动: 内容超过设置的高度以后显示滚动条，默认设置的高度为 240px</p>
+<blockquote>
+<p>am-scrollable -vertical</p>
+</blockquote>
+<p>四周外边距：</p>
+<pre><code>.am-margin
+.am-margin-{size}
+</code></pre><p>水平方向外边距：</p>
+<pre><code>.am-margin-horizontal
+.am-margin-horizontal-{size}
+</code></pre><p>垂直方向外边距：</p>
+<pre><code>.am-margin-vertical
+.am-margin-vertical-{size}
+</code></pre><p>左外边距：</p>
+<pre><code>.am-margin-left
+.am-margin-left-{size}
+</code></pre><p>其它同理可得</p>
+<p>Amaze UI给img定义了一些简单的样式，去掉图片原本的边框线，所以img元素中展示的其本身大小，可以通过.am-img-responsive满屏撑满</p>
 <pre><code>.am-img-responsive {
     display: block;
     max-width: 100%;
     height: auto;
 }
-</code></pre><p> 也可以通过.am-img-thumbnail添加边宽线</p>
-</li>
-<li><p>在Amaze UI使用表单时，需要在容器上添加 .am-form class，容器里的子元素才会应用 Amaze UI 定义的样式。</p>
-<p> 表单水平排列。在form表单中添加 .am-form-horizontal class 并结合网格系统使用</p>
+</code></pre><p>也可以通过.am-img-thumbnail添加边宽线</p>
+<p>在Amaze UI使用表单时，需要在容器上添加 .am-form class，容器里的子元素才会应用 Amaze UI 定义的样式。</p>
+<p>表单水平排列。在form表单中添加 .am-form-horizontal class 并结合网格系统使用</p>
 <pre><code>&lt;form class=&quot;am-form am-form-horizontal&quot;&gt;
       &lt;div class=&quot;am-form-group&quot;&gt;
         &lt;label for=&quot;doc-ipt-3&quot; class=&quot;am-u-sm-2 am-form-label&quot;&gt;电子邮件&lt;/label&gt;
@@ -219,26 +278,111 @@ am-btn-{color} 按钮设置颜色
         &lt;/div&gt;
       &lt;/div&gt;
 &lt;/form&gt;
-</code></pre><p> 简答的来说，am-form-group中的元素会一行内排列</p>
-<p> 行内排列，在外围容器上添加 .am-form-inline。 注意： 行内排列的元素并没有设置右边距，默认使用 inline-block 元素的间距，压缩 HTML 后行内表单元素的右边距会消失，需要自行处理。</p>
-</li>
-</ol>
-<pre><code>    &lt;form class=&quot;am-form-inline&quot; role=&quot;form&quot;&gt;
-          &lt;div class=&quot;am-form-group&quot;&gt;
-            &lt;input type=&quot;email&quot; class=&quot;am-form-field&quot; placeholder=&quot;电子邮件&quot;&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;am-form-group&quot;&gt;
-            &lt;input type=&quot;password&quot; class=&quot;am-form-field&quot; placeholder=&quot;密码&quot;&gt;
-          &lt;/div&gt;
-      &lt;/form&gt;
+</code></pre><p>简答的来说，am-form-group中的元素会一行内排列</p>
+<p>行内排列，在外围容器上添加 .am-form-inline。 注意： 行内排列的元素并没有设置右边距，默认使用 inline-block 元素的间距，压缩 HTML 后行内表单元素的右边距会消失，需要自行处理。</p>
+<pre><code>&lt;form class=&quot;am-form-inline&quot; role=&quot;form&quot;&gt;
+    &lt;div class=&quot;am-form-group&quot;&gt;
+        &lt;input type=&quot;email&quot; class=&quot;am-form-field&quot; placeholder=&quot;电子邮件&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;am-form-group&quot;&gt;
+        &lt;input type=&quot;password&quot; class=&quot;am-form-field&quot; placeholder=&quot;密码&quot;&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre><p>简答的来说，am-form-group中的元素会从左往右进行排列</p>
+<p>建议所有的input框全部放在am-form中，因为amaze ui已经帮我们封装好了。</p>
+<pre><code>.am-form select,
+.am-form textarea,
+.am-form input[type=&quot;text&quot;],
+.am-form input[type=&quot;password&quot;],
+.am-form input[type=&quot;datetime&quot;],
+.am-form input[type=&quot;datetime-local&quot;],
+.am-form input[type=&quot;date&quot;],
+.am-form input[type=&quot;month&quot;],
+.am-form input[type=&quot;time&quot;],
+.am-form input[type=&quot;week&quot;],
+.am-form input[type=&quot;number&quot;],
+.am-form input[type=&quot;email&quot;],
+.am-form input[type=&quot;url&quot;],
+.am-form input[type=&quot;search&quot;],
+.am-form input[type=&quot;tel&quot;],
+.am-form input[type=&quot;color&quot;],
+.am-form-field {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+</code></pre><p>表格</p>
+<p>Amaze UI通过给table添加.am-table设置基本样式；通过添加 .am-table-bordered 类生成边框线通过添加；通过添加 .am-table-radius 类生成外层圆角边宽；通过添加 .am-table-striped 类生成斑马线效果；通过添加 .am-table-hover 类生成hover 效果；</p>
+<pre><code>&lt;table class=&quot;am-table am-table-bordered am-table-radius am-table-striped am-table-hover&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;网站名称&lt;/th&gt;
+            &lt;th&gt;网址&lt;/th&gt;
+            &lt;th&gt;创建时间&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Amaze UI&lt;/td&gt;
+            &lt;td&gt;http://amazeui.org&lt;/td&gt;
+            &lt;td&gt;2012-10-01&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre><p>模拟弹窗</p>
+<p>下面就是Amaze UI一个常见的弹窗，官方文档中.am-modal后面还跟了.am-modal-alert或.am-modal-confirm,经过个人研究得出，没有实际用处，只是语义化而已。</p>
+<pre><code>//模拟弹窗开关
+&lt;button type=&quot;button&quot; id=&apos;btn&apos;&gt;&lt;/button&gt;
 
-简答的来说，am-form-group中的元素会从左往右进行排列
+//模拟弹窗
+&lt;div class=&quot;am-modal&quot; tabindex=&quot;-1&quot; id=&quot;modal&quot;&gt;
+  &lt;div class=&quot;am-modal-dialog&quot;&gt;
+    &lt;div class=&quot;am-modal-hd&quot;&gt;//模拟弹窗头部
+          &lt;a href=&quot;javascript: void(0)&quot; class=&quot;am-close am-close-spin&quot; data-am-modal-close&gt;&amp;times;&lt;/a&gt;
+        //a标签表示可以关闭当前弹窗的按钮
+    &lt;/div&gt;
+    &lt;div class=&quot;am-modal-bd&quot;&gt;
+          //模拟弹窗内容区
+    &lt;/div&gt;
+    &lt;div class=&quot;am-modal-footer&quot;&gt;
+        //模拟弹窗底部，底部一般放按钮，在一行等比例显示
+        &lt;span class=&quot;am-modal-btn&quot; data-am-modal-cancel&gt;取消&lt;/span&gt;
+          &lt;span class=&quot;am-modal-btn&quot; data-am-modal-confirm&gt;提交&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+//js调用，通过按钮点击事件触发
+
+$(&apos;#btn&apos;).onclick = function(){
+    $(&apos;#model&apos;).modal({
+        width: number    //可不写，
+        height: number //可不写，
+        onConfirm:function(options){
+            //对应点击事件 &lt;span class=&quot;am-modal-btn&quot; data-am-modal-confirm&gt;提交&lt;/span&gt;
+        }
+        onCancel:function(options){
+            //对应点击事件 &lt;span class=&quot;am-modal-btn&quot; data-am-modal-cancel&gt;取消&lt;/span&gt;
+        }
+    })
+}
 </code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/" data-id="cj6hm0mgh0000w4vd0lvd3mjq" class="article-share-link">分享到</a>
+        <a data-url="https://chenfm-outlook.github.io/2017/08/17/amaze-summarize/" data-id="cj6n7t7yq00025kvd7rcl7bbg" class="article-share-link">分享到</a>
       
 
       
